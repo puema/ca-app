@@ -1,3 +1,16 @@
-<p>
-  contact-details works!
-</p>
+<md-card class="contact-detail">
+
+  <h1>{{contact.name}} {{contact.surname}}</h1>
+
+
+  <div [hidden]="!contact.mobile" class="mobile-container" *ngFor='let mobile of contact.mobile'>
+    <p>Mobil   {{mobile}}</p>
+  </div>
+
+  <div [hidden]="!contact.email" class="email-container" *ngFor='let email of contact.email'>
+    <p>Mobil   {{mobile}}</p>
+  </div>
+
+
+</md-card>
+
