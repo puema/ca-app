@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { MaterialModule } from "@angular/material";
+
 import { AppComponent } from './app.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,7 +22,8 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MaterialModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
