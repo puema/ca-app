@@ -1,0 +1,27 @@
+[
+  {
+    "firstname": "Andreas",
+    "lastname": "Mock",
+    "pic": "/assets/dummy.jpeg"
+  },
+  {
+    "firstname": "Peter",
+    "lastname": "Anderl",
+    "pic": "/assets/dummy.jpeg"
+  },
+  {
+    "firstname": "Hans",
+    "lastname": "Huber",
+    "pic": "/assets/dummy.jpeg"
+  },
+  {
+    "firstname": "Hans",
+    "lastname": "Dampf",
+    "pic": "/assets/dummy.jpeg"
+  },
+  {
+    "firstname": "Hans",
+    "lastname": "Sarpei",
+    "pic": "/assets/dummy.jpeg"
+  }
+]

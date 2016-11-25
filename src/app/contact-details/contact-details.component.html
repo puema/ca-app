@@ -1,14 +1,14 @@
 <md-card class="contact-detail">
 
-  <h1>{{contact.name}} {{contact.surname}}</h1>
+  <h1>{{contact.firstname}} {{contact.lastname}}</h1>
 
 
   <div [hidden]="!contact.mobile" class="mobile-container" *ngFor='let mobile of contact.mobile'>
-    <p>Mobil   {{mobile}}</p>
+    <p>Cellphone   {{mobile}}</p>
   </div>
 
   <div [hidden]="!contact.email" class="email-container" *ngFor='let email of contact.email'>
-    <p>Mobil   {{mobile}}</p>
+    <p>Mail   {{email}}</p>
   </div>
 
 

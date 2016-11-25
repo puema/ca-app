@@ -1,5 +1,11 @@
-<header></header>
-
-<hr>
-
-<contact-details></contact-details>
+<div class="header-container">
+  <header></header>
+</div>
+<div class="contact-container">
+  <div class="contact-list-container">
+    <contacts-list [contactList]="contacts"></contacts-list>
+  </div>
+  <div class="contact-detail-container">
+    <contact-details></contact-details>
+  </div>
+</div>

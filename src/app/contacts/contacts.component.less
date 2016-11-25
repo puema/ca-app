@@ -3,3 +3,36 @@
 .red {
   color: @color;
 }
+
+contacts {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-container {
+  order: 1;
+}
+
+.contact-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  order: 2;
+}
+
+.contact-list-container {
+  order: 1;
+
+  margin: 2%;
+  width: 33%;
+  height: auto;
+  border-right: 1px solid #000;
+}
+
+.contact-detail-container {
+  order: 2;
+
+}

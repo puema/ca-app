@@ -1,0 +1,8 @@
+<div class="contact-list-body">
+  <md-list>
+    <md-list-item *ngFor="let contact of contactList; let last = last">
+      <contacts-list-element [contact]="contact"></contacts-list-element>
+    </md-list-item>
+  </md-list>
+</div>
+

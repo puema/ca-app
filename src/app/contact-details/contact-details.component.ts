@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ContactDetailsComponent implements OnInit {
 
   contact : {} = {
-    name: "Andreas",
-    surname: "Mock",
+    firstname: "Andreas",
+    lastname: "Mock",
     mobile: [
       "+49123456789",
       "+432345678901"
