@@ -1,3 +1,56 @@
+@blur-pixels: 10px;
+@profile-image-height: 225px;
+@profile-image-width: 300px;
+
 .contact-list-item {
   margin: 8px;
+}
+
+.u-blur {
+  -webkit-filter: blur(@blur-pixels);
+  -moz-filter: blur(@blur-pixels);
+  -o-filter: blur(@blur-pixels);
+  -ms-filter: blur(@blur-pixels);
+  filter: blur(@blur-pixels);
+  opacity: 0.5;
+}
+
+.profile-image-container {
+  position: relative;
+  width: @profile-image-width;
+  height: @profile-image-height;
+  overflow: hidden;
+}
+
+.profile-image-container > img {
+  position: absolute;
+  height: @profile-image-height + 2 * @blur-pixels;
+  width: @profile-image-width + 2 * @blur-pixels;
+  margin-top: -@blur-pixels;
+  margin-left: -@blur-pixels;
+}
+
+.profile-image-container .blur-overlay {
+  position: absolute;
+  background-color: white;
+  opacity: 0.5;
+  height: @profile-image-height;
+  width: @profile-image-width;
+}
+
+.image-cropper {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.cropped-image {
+  display: inline;
+  margin-left: -33%;
+  height: 100%;
+  width: auto;
 }

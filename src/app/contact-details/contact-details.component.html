@@ -1,16 +1,19 @@
-<md-card class="contact-detail">
+<div class="profile-image-container">
+  <img class="u-blur" src="/assets/harvey-specter.jpg">
+  <div class="blur-overlay"></div>
 
-  <h1>{{contact.firstname}} {{contact.lastname}}</h1>
-
-
-  <div [hidden]="!contact.mobile" class="mobile-container" *ngFor='let mobile of contact.mobile'>
-    <p>Cellphone   {{mobile}}</p>
+  <div class="image-cropper">
+    <img class="cropped-image" src="/assets/harvey-specter.jpg"/>
   </div>
+</div>
 
-  <div [hidden]="!contact.email" class="email-container" *ngFor='let email of contact.email'>
-    <p>Mail   {{email}}</p>
-  </div>
+<h1>{{contact.firstname}} {{contact.lastname}}</h1>
 
 
-</md-card>
+<div [hidden]="!contact.mobile" class="mobile-container" *ngFor='let mobile of contact.mobile'>
+  <p>Cellphone {{mobile}}</p>
+</div>
 
+<div [hidden]="!contact.email" class="email-container" *ngFor='let email of contact.email'>
+  <p>Mail {{email}}</p>
+</div>
