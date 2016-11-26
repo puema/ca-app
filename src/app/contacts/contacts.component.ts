@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import {ContactsListComponent} from "../contacts-list/contacts-list.component";
+import { Component, OnInit, Output } from "@angular/core";
 
 @Component({
   selector: 'contacts',
   templateUrl: './contacts.component.html',
-  styleUrls: ['./contacts.component.less'],
-  directives: [
-    ContactsListComponent
-  ]
+  styleUrls: ['./contacts.component.less']
 })
 export class ContactsComponent implements OnInit {
 
-  contacts = require('../../../contactMock.json');
+  @Output()
+  contacts : any = require('../../../contactMock.json');
 
   constructor() { }
 
