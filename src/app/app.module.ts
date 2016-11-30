@@ -11,7 +11,6 @@ import { HeaderComponent } from './header/header.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { ContactsListHeaderComponent } from './contacts-list-header/contacts-list-header.component';
 import { ContactsListBodyComponent } from './contacts-list-body/contacts-list-body.component';
-import { ContactsListElementComponent } from './contacts-list-element/contacts-list-element.component';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 
 @NgModule({
@@ -22,8 +21,7 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
     ContactsListComponent,
     ContactsListHeaderComponent,
     ContactsListBodyComponent,
-    ContactsListElementComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
   ],
   imports: [
     BrowserModule,

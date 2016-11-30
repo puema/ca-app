@@ -1,37 +1,15 @@
-@color: red;
-
-.red {
-  color: @color;
-}
-
-contacts {
+.contacts {
   display: flex;
   flex-direction: column;
 }
 
-.header-container {
-  order: 1;
-}
-
 .contact-container {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-
-  order: 2;
+  flex-direction: row;
 }
 
-.contact-list-container {
-  order: 1;
-
-  margin: 2%;
-  width: 33%;
-  height: auto;
-  border-right: 1px solid #000;
-}
-
-.contact-detail-container {
-  order: 2;
+.contacts-list-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2%;
 }

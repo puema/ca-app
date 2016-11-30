@@ -1,11 +1,9 @@
-<div class="header-container">
-  <header></header>
-</div>
-<div class="contact-container">
-  <div class="contact-list-container">
-    <contacts-list [contactList]="contacts"></contacts-list>
+<div class="contacts">
+  <div class="header-container">
+    <header></header>
   </div>
-  <div class="contact-detail-container">
-    <contact-details></contact-details>
+  <div class="contact-container">
+    <contacts-list class="contacts-list-container" [contactList]="contacts"></contacts-list>
+    <contact-details class="contact-detail-container"></contact-details>
   </div>
 </div>
