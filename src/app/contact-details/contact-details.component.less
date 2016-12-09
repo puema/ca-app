@@ -6,6 +6,15 @@
   margin: 8px;
 }
 
+.contact-details {
+  height: 100%;
+  box-shadow: -4px 0 16px 2px rgba(0, 0, 0, 0.20);
+}
+
+.contact-details-content {
+  padding: 0 16px 16px 16px;
+}
+
 .u-blur {
   -webkit-filter: blur(@blur-pixels);
   -moz-filter: blur(@blur-pixels);
@@ -22,7 +31,7 @@
   overflow: hidden;
 }
 
-.profile-image-container > img {
+.profile-image-container > .u-blur {
   position: absolute;
   height: @profile-image-height + 2 * @blur-pixels;
   width: @profile-image-width + 2 * @blur-pixels;
@@ -40,7 +49,7 @@
 
 .image-cropper {
   position: absolute;
-  top: 50px;
+  top: 40px;
   left: 100px;
   width: 100px;
   height: 100px;
@@ -53,4 +62,15 @@
   margin-left: -33%;
   height: 100%;
   width: auto;
+}
+
+.contact-details-name {
+  position: absolute;
+  top: 165px;
+  left: 16px;
+}
+
+.contact-details-name-underlay {
+  position: absolute;
+  bottom: 0;
 }

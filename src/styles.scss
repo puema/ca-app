@@ -22,3 +22,9 @@ $contacts-app-theme: md-light-theme($contacts-app-primary, $contacts-app-accent,
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($contacts-app-theme);
+
+html, body {
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  height: 100%;
+}

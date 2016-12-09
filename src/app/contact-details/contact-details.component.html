@@ -1,19 +1,25 @@
-<div class="profile-image-container">
-  <img class="u-blur" src="/assets/harvey-specter.jpg">
-  <div class="blur-overlay"></div>
+<div class="contact-details">
+  <div class="profile-image-container">
+    <img class="u-blur" src="/assets/harvey-specter.jpg">
+    <div class="blur-overlay"></div>
 
-  <div class="image-cropper">
-    <img class="cropped-image" src="/assets/harvey-specter.jpg"/>
+    <div class="image-cropper">
+      <img class="cropped-image" src="/assets/harvey-specter.jpg"/>
+    </div>
+
+    <img class="contact-details-name-underlay" src="/assets/contact-details-name-underlay.svg"/>
+    <h2 class="contact-details-name">{{contact.firstname}} {{contact.lastname}}</h2>
   </div>
-</div>
 
-<h1>{{contact.firstname}} {{contact.lastname}}</h1>
+  <div class="contact-details-content">
 
+    <div [hidden]="!contact.mobile" class="mobile-container" *ngFor='let mobile of contact.mobile'>
+      <p>Cellphone {{mobile}}</p>
+    </div>
 
-<div [hidden]="!contact.mobile" class="mobile-container" *ngFor='let mobile of contact.mobile'>
-  <p>Cellphone {{mobile}}</p>
-</div>
+    <div [hidden]="!contact.email" class="email-container" *ngFor='let email of contact.email'>
+      <p>Mail {{email}}</p>
+    </div>
 
-<div [hidden]="!contact.email" class="email-container" *ngFor='let email of contact.email'>
-  <p>Mail {{email}}</p>
+  </div>
 </div>
