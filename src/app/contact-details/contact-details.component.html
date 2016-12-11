@@ -13,28 +13,38 @@
 
   <div class="contact-details-content">
 
-    <md-icon class="u-grey">phone</md-icon>
-
-    <div class="mobile-container" *ngFor='let mobile of contact.mobile'>
-      <p>Cellphone {{mobile}}</p>
+    <div class="flex-row">
+      <md-icon class="contact-details-icon u-grey">phone</md-icon>
+      <div class="contact-details-content-section">
+        <p *ngFor='let mobile of contact.mobile'>{{mobile}}</p>
+      </div>
     </div>
 
     <md-divider></md-divider>
 
-    <div class="mail-container" *ngFor='let mail of contact.mail'>
-      <p>Mail {{mail}}</p>
+    <div class="flex-row">
+      <md-icon class="contact-details-icon u-grey">mail</md-icon>
+      <div class="contact-details-content-section">
+        <p *ngFor='let mail of contact.mail'>{{mail}}</p>
+      </div>
     </div>
 
     <md-divider></md-divider>
 
-    <div class="mail-container" *ngFor='let addressLine of contact.address'>
-      <p>{{addressLine}}</p>
+    <div class="flex-row">
+      <md-icon class="contact-details-icon u-grey">business</md-icon>
+      <div class="contact-details-content-section">
+        <p class="contact-details-address" *ngFor='let addressLine of contact.address'>{{addressLine}}</p>
+      </div>
     </div>
 
     <md-divider></md-divider>
 
-    <div class="mail-container" *ngIf='contact.birthday'>
-      <p>{{contact.birthday}}</p>
+    <div class="flex-row">
+      <md-icon class="contact-details-icon u-grey">cake</md-icon>
+      <div class="contact-details-content-section" *ngIf='contact.birthday'>
+        <p>{{contact.birthday}}</p>
+      </div>
     </div>
 
   </div>
