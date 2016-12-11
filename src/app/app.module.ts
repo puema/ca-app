@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpInterceptorModule } from 'angular2-http-interceptor/lib/index';
+import { TokenInterceptor } from './data/token-interceptor/token-interceptor';
 
 import { MaterialModule } from "@angular/material";
 
@@ -27,7 +29,8 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    HttpInterceptorModule.withInterceptors([TokenInterceptor])
   ],
   providers: [],
   bootstrap: [AppComponent]
