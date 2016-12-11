@@ -6,8 +6,8 @@ import { ContactsApi } from './api/ContactsApi';
 /**
  * Instantiation service for api typescript files.
  */
-@Injectable('ApiInstantiator')
-@Inject('$http', '$httpParamSerializer')
+@Injectable()
+@Inject('$http')
 export class ApiInstantiator {
 
   constructor (private $http : Http) {}
@@ -20,14 +20,14 @@ export class ApiInstantiator {
    * const myApi : MyApiClass = apiInstantiator.initCdpApi(MyApiClass);
    */
   public initContactsApi () : ContactsApi {
-    return this.initApi(ContactsApi, null);
+    return this.initApi(ContactsApi, '');
   }
 
 
   private initApi (api : any, domain : string) : any {
     // Hack to ensure that we can configure the API to be on the same host (but under a different port) as
     // the app regardless of whether the app is accessed via 'localhost' or remotely.
-    // domain = domain.replace('SAMEHOST', window.location.hostname);
+    domain = domain.replace('SAMEHOST', window.location.hostname);
 
     return new api(this.$http, domain);
   }
