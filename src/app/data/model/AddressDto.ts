@@ -25,37 +25,22 @@
 'use strict';
 import * as models from './models';
 
-export interface ContactDto {
+export interface AddressDto {
     
 
     id?: string;
 
-    userId?: string;
-
     created?: Date;
 
-    firstname?: string;
+    street?: string;
 
-    lastname?: string;
+    number?: string;
 
-    title?: string;
+    addition?: string;
 
-    academicDegree?: string;
+    zip?: string;
 
-    suffix?: string;
+    city?: string;
 
-    gender?: ContactDto.GenderEnum;
-
-    birthday?: Date;
-
-    addresses?: Array<models.AddressDto>;
-
-    emailAddresses?: Array<string>;
-}
-export namespace ContactDto {
-
-    export enum GenderEnum { 
-        0 = <any> '0',
-        1 = <any> '1',
-    }
+    region?: string;
 }

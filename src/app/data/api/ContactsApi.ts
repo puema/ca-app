@@ -137,7 +137,7 @@ export class ContactsApi {
     }
 
     /**
-     * Get all contacts from database
+     * Get all contacts for current user from database
      * 
      */
     public contactsGetAll (extraHttpRequestParams?: any ) : Observable<any> {
