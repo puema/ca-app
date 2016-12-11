@@ -8,17 +8,33 @@
     </div>
 
     <img class="contact-details-name-underlay" src="/assets/contact-details-name-underlay.svg"/>
-    <h2 class="contact-details-name">{{contact.firstname}} {{contact.lastname}}</h2>
+    <h2 class="contact-details-name">{{contact.firstName}} {{contact.lastName}}</h2>
   </div>
 
   <div class="contact-details-content">
 
-    <div [hidden]="!contact.mobile" class="mobile-container" *ngFor='let mobile of contact.mobile'>
+    <md-icon class="u-grey">phone</md-icon>
+
+    <div class="mobile-container" *ngFor='let mobile of contact.mobile'>
       <p>Cellphone {{mobile}}</p>
     </div>
 
-    <div [hidden]="!contact.email" class="email-container" *ngFor='let email of contact.email'>
-      <p>Mail {{email}}</p>
+    <md-divider></md-divider>
+
+    <div class="mail-container" *ngFor='let mail of contact.mail'>
+      <p>Mail {{mail}}</p>
+    </div>
+
+    <md-divider></md-divider>
+
+    <div class="mail-container" *ngFor='let addressLine of contact.address'>
+      <p>{{addressLine}}</p>
+    </div>
+
+    <md-divider></md-divider>
+
+    <div class="mail-container" *ngIf='contact.birthday'>
+      <p>{{contact.birthday}}</p>
     </div>
 
   </div>

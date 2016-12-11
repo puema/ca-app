@@ -14,7 +14,7 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Get all contacts from database",
+        "summary": "Get all contacts for current user from database",
         "operationId": "Contacts_GetAll",
         "consumes": [],
         "produces": [
@@ -179,156 +179,12 @@
           }
         }
       }
-    },
-    "/api/Values": {
-      "get": {
-        "tags": [
-          "Values"
-        ],
-        "operationId": "Values_Get",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Values"
-        ],
-        "operationId": "Values_Post",
-        "consumes": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml",
-          "application/x-www-form-urlencoded"
-        ],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "value",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        }
-      }
-    },
-    "/api/Values/{id}": {
-      "get": {
-        "tags": [
-          "Values"
-        ],
-        "operationId": "Values_Get",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Values"
-        ],
-        "operationId": "Values_Put",
-        "consumes": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml",
-          "application/x-www-form-urlencoded"
-        ],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "value",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Values"
-        ],
-        "operationId": "Values_Delete",
-        "consumes": [],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        }
-      }
     }
   },
   "definitions": {
     "ContactDto": {
       "required": [
+        "UserId",
         "Created",
         "Firstname",
         "Lastname",
@@ -337,6 +193,10 @@
       "type": "object",
       "properties": {
         "Id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "UserId": {
           "format": "uuid",
           "type": "string"
         },
@@ -369,6 +229,57 @@
         },
         "Birthday": {
           "format": "date-time",
+          "type": "string"
+        },
+        "Addresses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AddressDto"
+          }
+        },
+        "EmailAddresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "AddressDto": {
+      "required": [
+        "Created",
+        "Street",
+        "Number",
+        "Zip",
+        "City",
+        "Region"
+      ],
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "Created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Street": {
+          "type": "string"
+        },
+        "Number": {
+          "type": "string"
+        },
+        "Addition": {
+          "type": "string"
+        },
+        "Zip": {
+          "type": "string"
+        },
+        "City": {
+          "type": "string"
+        },
+        "Region": {
           "type": "string"
         }
       }

@@ -1,2 +1,4 @@
-<contacts-list-header class="contacts-list-header-container"></contacts-list-header>
-<contacts-list-body class="contacts-list-body-container" [contactList]="contactList"></contacts-list-body>
+<div class="contacts-list flex-column">
+  <contacts-list-header></contacts-list-header>
+  <contacts-list-body class="scroll" [contactList]="contactList"></contacts-list-body>
+</div>

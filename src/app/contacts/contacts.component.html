@@ -1,9 +1,9 @@
-<div class="contacts">
+<div class="contacts flex-column full-height">
   <div class="header-container">
     <header></header>
   </div>
-  <div class="contact-container">
-    <contacts-list class="contacts-list-container" [contactList]="contacts"></contacts-list>
-    <contact-details class="contact-detail-container"></contact-details>
+  <div class="flex-row">
+    <contacts-list class="flex-column" [contactList]="contacts"></contacts-list>
+    <contact-details></contact-details>
   </div>
 </div>
