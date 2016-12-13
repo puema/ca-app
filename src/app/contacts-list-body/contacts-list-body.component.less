@@ -1,5 +1,9 @@
 @import '../app.component.less';
 
 .contacts-list-body {
-  overflow: scroll;
+  position: relative;
+  padding-top: 60px;
+  height: ~'calc(100% - 60px)';
+  overflow: auto;
+  z-index: 3;
 }
