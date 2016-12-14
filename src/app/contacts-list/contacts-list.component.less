@@ -1,23 +1,33 @@
 @import '../app.component.less';
 
+.contacts-list-header {
+  position: absolute;
+  width: 100%;
+  z-index: 4;
+}
+
 .search-icon {
   margin-left: 16px;
   margin-right: 16px;
 }
 
-.contacts-list-header {
+.contacts-list-header-underlay {
   position: absolute;
   width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  opacity: 0.9;
+}
+
+.search-input {
   margin-top: 8px;
   margin-left: 16px;
-  background-color: rgb(255, 255, 255, 0.2);
-  z-index: 4;
 }
 
 .contacts-list-body {
   position: relative;
-  padding-top: 60px;
-  height: calc(100% - 60px);
+  padding-top: @contacts-list-header-height;
+  height: ~'calc(100% - ' @contacts-list-header-height ~')';
   overflow: auto;
   z-index: 3;
 }
