@@ -10,6 +10,7 @@ import { ContactsComponent } from "./contacts/contacts.component";
 import { HeaderComponent } from "./header/header.component";
 import { ContactsListComponent } from "./contacts-list/contacts-list.component";
 import { ContactDetailsComponent } from "./contact-details/contact-details.component";
+import {ApiInstantiator} from './data/ApiInstantiator';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ContactDetailsComponent } from "./contact-details/contact-details.compo
     MaterialModule.forRoot(),
     HttpInterceptorModule.withInterceptors([TokenInterceptor])
   ],
-  providers: [],
+  providers: [ApiInstantiator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
