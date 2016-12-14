@@ -1,5 +1,7 @@
 @import '../app.component.less';
 
+@contacts-list-blur-pixels: 10px;
+
 .contacts-list-header {
   position: absolute;
   width: 100%;
@@ -16,7 +18,7 @@
   width: 100%;
   height: 100%;
   background-color: #ffffff;
-  opacity: 0.9;
+  opacity: 0.4;
 }
 
 .search-input {
@@ -25,9 +27,21 @@
 }
 
 .contacts-list-body {
-  position: relative;
-  padding-top: @contacts-list-header-height;
+  position: absolute;
+  width: 100%;
+  top: @contacts-list-header-height;
   height: ~'calc(100% - ' @contacts-list-header-height ~')';
   overflow: auto;
+  background-color: white;
   z-index: 3;
+}
+
+.contacts-list-body-blurred {
+  position: absolute;
+  width: 100%;
+  padding-top: @contacts-list-header-height;
+  height: ~'calc(100% - ' @contacts-list-header-height ~')';
+  backface-visibility: hidden;
+  z-index: 3;
+  filter: blur(@contacts-list-blur-pixels);
 }

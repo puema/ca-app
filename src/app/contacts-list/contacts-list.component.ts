@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import { Component, Input, ElementRef} from "@angular/core";
 import {Subject} from 'rxjs';
 
 @Component({
@@ -6,16 +6,23 @@ import {Subject} from 'rxjs';
   templateUrl: './contacts-list.component.html',
   styleUrls: ['./contacts-list.component.less'],
 })
-export class ContactsListComponent implements OnInit {
+export class ContactsListComponent {
 
   @Input()
-  contactList: any[];
+  contactList : any[];
 
+  private content = Element;
+  private contentBlurred = Element;
   private searchTerm = new Subject<string>();
 
-  constructor() { }
+  constructor (private element : ElementRef) {
+    this.content = element.nativeElement.getElementsByClassName('contacts-list-body');
+    this.contentBlurred = element.nativeElement.getElementsByClassName('contacts-list-body-blurred');
 
-  ngOnInit() {
+    this.element.nativeElement.addEventListener('scroll',(e) => {
+      this.contentBlurred[0].style.transform = `translate3d(0, ${-e.target.scrollTop}px, 0)`;
+    }, true);
+
   }
 
   searchContacts(term: string) : void {
