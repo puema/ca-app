@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { ContactsApi } from './api/ContactsApi';
+import {MockApi} from './api/ApiMock';
 
 /**
  * Instantiation service for api typescript files.
@@ -21,6 +22,10 @@ export class ApiInstantiator {
    */
   public initContactsApi () : ContactsApi {
     return this.initApi(ContactsApi, '');
+  }
+
+  public initMockApi () : MockApi {
+    return this.initApi(MockApi, '');
   }
 
 

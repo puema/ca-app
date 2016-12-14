@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'contacts-list',
@@ -10,9 +11,15 @@ export class ContactsListComponent implements OnInit {
   @Input()
   contactList: any[];
 
+  private searchTerm = new Subject<string>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  searchContacts(term: string) : void {
+    console.log(term);
+    this.searchTerm.next(term);
+  }
 }

@@ -1,6 +1,7 @@
 import {Component, OnInit, Output} from "@angular/core";
 import {ContactsApi} from '../data/api/ContactsApi';
 import {ApiInstantiator} from '../data/ApiInstantiator';
+import {MockApi} from '../data/api/ApiMock';
 
 
 @Component({
@@ -11,16 +12,20 @@ import {ApiInstantiator} from '../data/ApiInstantiator';
 })
 export class ContactsComponent implements OnInit {
 
-  private endpoint : ContactsApi;
+  // private endpoint : ContactsApi;
+  private endpoint : MockApi;
 
   @Output()
-  contacts : any = require('../../../contactMock.json');
+  contacts : any;
 
   constructor(private apiInst : ApiInstantiator ) {
-    this.endpoint = apiInst.initContactsApi();
+    //TODO switch to real api when going prod
+    // this.endpoint = apiInst.initContactsApi();
+    this.endpoint = apiInst.initMockApi();
   }
 
   ngOnInit() {
+    this.contacts = this.endpoint.contactsGetAll();
   }
 
 }
