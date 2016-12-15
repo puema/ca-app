@@ -1,0 +1,45 @@
+@import '../app.component.less';
+
+@contacts-list-blur-pixels: 10px;
+
+.mp-blurred-scroll {
+  .blurred-header {
+    position: absolute;
+    width: 100%;
+    z-index: 4;
+  }
+
+  .search-icon {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .blurred-header-underlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    opacity: 0.4;
+  }
+
+  .search-input {
+    margin-top: 8px;
+    margin-left: 16px;
+  }
+
+  .content {
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+    background-color: white;
+    z-index: 3;
+  }
+
+  .blurred-content {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+    z-index: 3;
+    filter: blur(@contacts-list-blur-pixels);
+  }
+}

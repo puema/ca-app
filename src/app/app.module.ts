@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { HttpInterceptorModule } from "angular2-http-interceptor/lib/index";
@@ -10,7 +10,8 @@ import { ContactsComponent } from "./contacts/contacts.component";
 import { HeaderComponent } from "./header/header.component";
 import { ContactsListComponent } from "./contacts-list/contacts-list.component";
 import { ContactDetailsComponent } from "./contact-details/contact-details.component";
-import {ApiInstantiator} from './data/ApiInstantiator';
+import { ApiInstantiator } from './data/ApiInstantiator';
+import { MpBlurredScrollComponent } from "./mp-blurred-scroll/mp-blurred-scroll.component";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {ApiInstantiator} from './data/ApiInstantiator';
     HeaderComponent,
     ContactsListComponent,
     ContactDetailsComponent,
+    MpBlurredScrollComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,8 @@ import {ApiInstantiator} from './data/ApiInstantiator';
     HttpInterceptorModule.withInterceptors([TokenInterceptor])
   ],
   providers: [ApiInstantiator],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {
+}

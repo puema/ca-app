@@ -1,5 +1,5 @@
-import { Component, Input, ElementRef} from "@angular/core";
-import {Subject} from 'rxjs';
+import { Component, Input } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Component({
   selector: 'contacts-list',
@@ -11,18 +11,9 @@ export class ContactsListComponent {
   @Input()
   contactList : any[];
 
-  private content = Element;
-  private contentBlurred = Element;
   private searchTerm = new Subject<string>();
 
-  constructor (private element : ElementRef) {
-    this.content = element.nativeElement.getElementsByClassName('contacts-list-body');
-    this.contentBlurred = element.nativeElement.getElementsByClassName('contacts-list-body-blurred');
-
-    this.element.nativeElement.addEventListener('scroll',(e) => {
-      this.contentBlurred[0].style.transform = `translate3d(0, ${-e.target.scrollTop}px, 0)`;
-    }, true);
-
+  constructor () {
   }
 
   searchContacts(term: string) : void {
