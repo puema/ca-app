@@ -1,8 +1,8 @@
 import {Injectable, Inject} from '@angular/core';
-import {ApiInstantiator} from './data/ApiInstantiator';
-import {ContactsApi} from './data/api/ContactsApi';
-import {MockApi} from './data/api/ApiMock';
-import {ContactDto} from './data/model/ContactDto';
+import {ApiInstantiator} from './ApiInstantiator';
+import {ContactsApi} from './api/ContactsApi';
+import {MockApi} from './api/ApiMock';
+import {ContactDto} from './model/ContactDto';
 import {Observable} from 'rxjs';
 
 @Injectable()

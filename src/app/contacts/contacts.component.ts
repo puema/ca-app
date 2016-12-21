@@ -1,8 +1,5 @@
-import {Component, OnInit, Output, Inject} from "@angular/core";
-import {ContactsApi} from '../data/api/ContactsApi';
-import {ApiInstantiator} from '../data/ApiInstantiator';
-import {MockApi} from '../data/api/ApiMock';
-import {ContactsService} from '../contacts.service';
+import { Component, OnInit, Output } from "@angular/core";
+import { ContactsService } from "../data/contacts.service";
 
 
 @Component({
@@ -16,12 +13,12 @@ export class ContactsComponent implements OnInit {
   @Output()
   contacts : any;
 
-  constructor(private contactsServ : ContactsService ) {
+  constructor(private contactsService : ContactsService ) {
 
   }
 
   ngOnInit() {
-    this.contacts = this.contactsServ.getContacts();
+    this.contacts = this.contactsService.getContacts();
   }
 
 }

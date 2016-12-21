@@ -11,7 +11,8 @@ import { HeaderComponent } from "./header/header.component";
 import { ContactsListComponent } from "./contacts-list/contacts-list.component";
 import { ContactDetailsComponent } from "./contact-details/contact-details.component";
 import { ApiInstantiator } from './data/ApiInstantiator';
-import { MpBlurredScrollComponent } from "./mp-blurred-scroll/mp-blurred-scroll.component";
+import { MpBlurredScroll } from "mp-blurred-scroll";
+import { ContactsListPipe } from './contacts-list/contacts-list.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MpBlurredScrollComponent } from "./mp-blurred-scroll/mp-blurred-scroll.
     HeaderComponent,
     ContactsListComponent,
     ContactDetailsComponent,
-    MpBlurredScrollComponent
+    MpBlurredScroll,
+    ContactsListPipe
   ],
   imports: [
     BrowserModule,

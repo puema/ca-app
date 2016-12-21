@@ -1,7 +1,7 @@
 <mp-blurred-scroll>
 
   <mp-blurred-scroll-header>
-    <md-input #searchBox (keyup)="searchContacts(searchBox.value)" class="search-input" placeholder="search"
+    <md-input #searchBox (keyup)="onKeyup(searchBox.value)" class="search-input" placeholder="search"
               align="start">
       <md-icon class="search-icon" md-prefix>search</md-icon>
     </md-input>
@@ -9,13 +9,12 @@
 
   <mp-blurred-scroll-content>
     <md-nav-list>
-      <md-list-item *ngFor="let contact of contactList; let last = last">
+      <md-list-item *ngFor="let contact of contactList | contactsListPipe:searchBox.value;">
         <img md-list-avatar src="{{contact.pic}}" alt="not found">
         <h3 md-line> {{contact.lastname}} </h3>
         <p md-line>
           <span> {{contact.firstname}} </span>
         </p>
-        <md-divider *ngIf="!last"></md-divider>
       </md-list-item>
     </md-nav-list>
   </mp-blurred-scroll-content>

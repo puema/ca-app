@@ -1,5 +1,10 @@
 import { Component, Input } from "@angular/core";
-import { Subject } from "rxjs";
+
+export interface ContactsListItem {
+  firstname : 'string',
+  lastname : 'string',
+  image : 'string'
+}
 
 @Component({
   selector: 'contacts-list',
@@ -9,15 +14,13 @@ import { Subject } from "rxjs";
 export class ContactsListComponent {
 
   @Input()
-  contactList : any[];
+  contactList : ContactsListItem[];
 
-  private searchTerm = new Subject<string>();
+  private value : string = 'Harvey';
 
   constructor () {
   }
 
-  searchContacts(term: string) : void {
-    console.log(term);
-    this.searchTerm.next(term);
+  private onKeyup (searchInput : string) {
   }
 }
