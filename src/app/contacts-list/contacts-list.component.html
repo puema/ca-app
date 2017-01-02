@@ -1,7 +1,7 @@
 <mp-blurred-scroll>
 
   <mp-blurred-scroll-header>
-    <md-input #searchBox (keyup)="onKeyup(searchBox.value)" class="search-input" placeholder="search"
+    <md-input #searchBox class="search-input" placeholder="search"
               align="start">
       <md-icon class="search-icon" md-prefix>search</md-icon>
     </md-input>
@@ -10,7 +10,13 @@
   <mp-blurred-scroll-content>
     <md-nav-list>
       <md-list-item *ngFor="let contact of contactList | contactsListPipe:searchBox.value;">
-        <img md-list-avatar src="{{contact.pic}}" alt="not found">
+        <img *ngIf="contact.image" md-list-avatar src="{{contact.image}}" alt="not found">
+        <div *ngIf="!contact.image" md-list-avatar class="dummy-image"
+             [style.background-color]="getRandomColor(contact.firstname.substr(0,3) + contact.lastname.substr(0,3))">
+          <p class="dummy-image-initials">
+            {{contact.firstname.charAt(0).toUpperCase()}}{{contact.lastname.charAt(0).toUpperCase()}}
+          </p>
+        </div>
         <h3 md-line> {{contact.lastname}} </h3>
         <p md-line>
           <span> {{contact.firstname}} </span>
@@ -20,55 +26,3 @@
   </mp-blurred-scroll-content>
 
 </mp-blurred-scroll>
-
-<!--<mp-blurred-scroll [blur]="1" [opacity]="0.8">-->
-  <!--<mp-blurred-scroll-header>-->
-    <!--<p>Header!</p>-->
-  <!--</mp-blurred-scroll-header>-->
-  <!--<mp-blurred-scroll-content>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-    <!--<p>Content!</p>-->
-  <!--</mp-blurred-scroll-content>-->
-<!--</mp-blurred-scroll>-->
