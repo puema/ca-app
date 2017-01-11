@@ -13,7 +13,7 @@
         <img *ngIf="contact.image" md-list-avatar src="{{contact.image}}" alt="not found">
         <div *ngIf="!contact.image" md-list-avatar class="dummy-image"
              [style.background-color]="getRandomColor(contact.firstname.substr(0,3) + contact.lastname.substr(0,3))">
-          <p class="dummy-image-initials">
+          <p class="dummy-image-initials thin">
             {{contact.firstname.charAt(0).toUpperCase()}}{{contact.lastname.charAt(0).toUpperCase()}}
           </p>
         </div>

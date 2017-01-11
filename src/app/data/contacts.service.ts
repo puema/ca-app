@@ -13,13 +13,12 @@ export class ContactsService {
   private Contacts : ContactDto[];
 
   constructor(private apiInst : ApiInstantiator) {
-    //TODO switch to real api when going prod
     this.endpoint = apiInst.initContactsApi();
-    // this.endpoint = apiInst.initMockApi();
   }
 
   public getContacts() : Observable<ContactDto> {
-    return this.endpoint.contactsGetAll();
+    // return this.endpoint.contactsGetAll();
+    return require('../../../contactMock.json');
   }
 
 }

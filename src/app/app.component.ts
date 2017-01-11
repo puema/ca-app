@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { MdIconRegistry } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = 'app works!';
 
-  constructor () {
+  constructor (private mdIconRegistry : MdIconRegistry) {
+    mdIconRegistry.addSvgIconSet('/assets/icons.svg');
   }
 }

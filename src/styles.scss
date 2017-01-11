@@ -28,3 +28,25 @@ html, body {
   margin: 0;
   height: 100%;
 }
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.scroll {
+  overflow: scroll;
+}
+
+.thin {
+  font-family: roboto-thin, sans-serif;
+}
