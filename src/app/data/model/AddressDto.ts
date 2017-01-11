@@ -43,4 +43,6 @@ export interface AddressDto {
     city?: string;
 
     region?: string;
+
+    country?: models.CountryDto;
 }

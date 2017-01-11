@@ -34,7 +34,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class ContactsApi {
-    protected basePath = 'http://localhost:55062';
+    protected basePath = 'https://torpedomaximumapi.azurewebsites.net';
     public defaultHeaders : Headers = new Headers();
 
     constructor(protected http: Http, @Optional() basePath: string) {
@@ -106,9 +106,9 @@ export class ContactsApi {
     }
 
     /**
-     * Get contact by ID
      * 
-     * @param id ID of contact to find
+     * 
+     * @param id 
      */
     public contactsGet (id: string, extraHttpRequestParams?: any ) : Observable<any> {
         const path = this.basePath + '/api/Contacts/{id}'
@@ -137,7 +137,7 @@ export class ContactsApi {
     }
 
     /**
-     * Get all contacts for current user from database
+     * 
      * 
      */
     public contactsGetAll (extraHttpRequestParams?: any ) : Observable<any> {
