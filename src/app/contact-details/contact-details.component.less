@@ -2,7 +2,7 @@
 
 //@color-grey: #505050;
 
-@blur-pixels: 10px;
+@blur-pixels: 8px;
 @profile-image-height: 225px;
 @profile-image-width: 300px;
 
@@ -61,7 +61,8 @@
 
 .profile-image-container > .u-blur {
   position: absolute;
-  height: @profile-image-height + 2 * @blur-pixels;
+  // take width for height to avoid stretched image
+  height: @profile-image-width + 2 * @blur-pixels;
   width: @profile-image-width + 2 * @blur-pixels;
   margin-top: -@blur-pixels;
   margin-left: -@blur-pixels;
@@ -87,7 +88,6 @@
 
 .cropped-image {
   display: inline;
-  margin-left: -33%;
   height: 100%;
   width: auto;
 }

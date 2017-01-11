@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 export interface IContactDetails {
+  image : string;
   firstName : string,
   lastName : string,
   mobile : string[],
@@ -17,6 +18,7 @@ export interface IContactDetails {
 export class ContactDetailsComponent implements OnInit {
 
   contact : IContactDetails = {
+    image: '/assets/harvey-specter.jpeg',
     firstName: 'Harvey',
     lastName: 'Spectre',
     mobile: [
