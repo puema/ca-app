@@ -9,10 +9,10 @@
 
   <mp-blurred-scroll-content>
     <md-nav-list>
-      <md-list-item *ngFor="let contact of contactList | contactsListPipe:searchBox.value;">
-        <img *ngIf="contact.image" md-list-avatar src="{{contact.image}}" alt="not found">
-        <div *ngIf="!contact.image" md-list-avatar class="dummy-image"
-             [style.background-color]="getRandomColor(contact.firstname.substr(0,3) + contact.lastname.substr(0,3))">
+      <md-list-item (click)="onClick(contact)" *ngFor="let contact of contacts | contactsListPipe:searchBox.value;">
+        <img *ngIf="contact.imageUri" md-list-avatar src="{{contact.imageUri}}" alt="not found">
+        <div *ngIf="!contact.imageUri" md-list-avatar class="dummy-image"
+             [style.background-color]="getColor(contact)">
           <p class="dummy-image-initials thin">
             {{contact.firstname.charAt(0).toUpperCase()}}{{contact.lastname.charAt(0).toUpperCase()}}
           </p>

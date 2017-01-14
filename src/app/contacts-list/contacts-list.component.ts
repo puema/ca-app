@@ -1,10 +1,6 @@
-import { Component, Input } from "@angular/core";
-
-export interface ContactsListItem {
-  firstname : 'string',
-  lastname : 'string',
-  image? : 'string'
-}
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ContactDto } from '../data/model/ContactDto';
+import { numToHSL, hashCode, getContactColor } from '../utils/color-util';
 
 @Component({
   selector: 'contacts-list',
@@ -14,29 +10,20 @@ export interface ContactsListItem {
 export class ContactsListComponent {
 
   @Input()
-  contactList : ContactsListItem[];
+  contacts : ContactDto[];
+
+  @Output()
+  selectedContact: EventEmitter<ContactDto> = new EventEmitter<ContactDto>();
 
   constructor () {
   }
 
-  private getRandomColor (str : string) : string {
-    // return `#${this.intToRGB(this.hashCode(str))}`;
-    return inToHSL(hashCode(str));
+  private getColor (contact : ContactDto) : string {
+    return getContactColor(contact);
   }
 
-}
-
-function hashCode (str : string) : number { // java String#hashCode
-  let hash : number = 0;
-  if (str.length == 0) return hash;
-  for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    hash = hash & hash; // Convert to 32bit integer
+  private onClick (contact : ContactDto) : void {
+    this.selectedContact.emit(contact);
   }
-  return hash;
-}
 
-function inToHSL (num : number) : string {
-  let shortened = num % 360;
-  return `hsl(${shortened}, 100%, 30%)`;
 }

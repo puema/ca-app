@@ -1,15 +1,10 @@
-@import (reference) '../app.component.less';
-
 @blur-pixels: 8px;
 @profile-image-height: 225px;
 @profile-image-width: 300px;
+@color-grey: #505050;
 
 .contact-details .flex-row {
   display: flex;
-}
-
-.edit-icon {
-
 }
 
 .contact-details-icon {
@@ -24,14 +19,17 @@
   margin: 8px;
 }
 
-.contact-details-address:first-of-type{
+.contact-details-address:first-of-type {
   margin-top: 16px;
 }
 
-.contact-details-address:last-of-type{
+.contact-details-address:last-of-type {
   margin-bottom: 16px;
 }
 
+md-divider:last-of-type {
+  display: none;
+}
 
 .contact-details {
   box-shadow: -4px 0 16px 2px rgba(0, 0, 0, 0.20);
@@ -92,6 +90,28 @@
   display: inline;
   height: 100%;
   width: auto;
+}
+
+.dummy-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dummy-image-initials {
+  margin: 0;
+  color: white;
+  display: inline;
+  font-size: 40pt;
+}
+
+.blurred-dummy-image-initials {
+  margin: 0;
+  color: white;
+  display: inline;
+  font-size: 120pt;
 }
 
 .contact-details-name {

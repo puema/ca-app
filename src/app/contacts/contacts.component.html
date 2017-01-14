@@ -3,7 +3,7 @@
     <header></header>
   </div>
   <div class="flex-row full-height">
-    <contacts-list class="contacts-list-container" [contactList]="contacts"></contacts-list>
-    <contact-details class="contact-details-container"></contact-details>
+    <contacts-list [contacts]="contacts" (selectedContact)="onSelectContact($event)" class="contacts-list-container"></contacts-list>
+    <contact-details [contact]="selectedContact" class="contact-details-container"></contact-details>
   </div>
 </div>

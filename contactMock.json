@@ -1,15 +1,54 @@
 [
   {
     "firstname": "Harvey",
-    "lastname": "Spectre"
+    "lastname": "Spectre",
+    "id": "id",
+    "userId": "userId",
+    "created": "today",
+    "birthday": "11/19/1983",
+    "image": "image",
+    "imageUri": "/assets/harvey-specter.jpeg",
+    "addresses": [
+      {
+        "id": "id",
+        "created": "today",
+        "street": "E 54th St",
+        "number": "601",
+        "zip": "10000",
+        "city": "New York City",
+        "region": "New York",
+        "country": "United States of America"
+      }
+    ],
+    "emailAddresses": [
+      "harvey.spectre@psl.com"
+    ],
+    "phoneNumbers": [
+      "+49 151 233233"
+    ]
   },
   {
     "firstname": "Marcel",
-    "lastname": "Pütz"
+    "lastname": "Pütz",
+    "emailAddresses": [
+      "marcel.p.puetz@gmail.com",
+      "marcelpuetz@web.de",
+      "marcel.puetz@qaware.de"
+    ]
   },
   {
     "firstname": "Marko",
-    "lastname": "Grigc"
+    "lastname": "Grigc",
+    "addresses": [
+      {
+        "city": "Rosenheim",
+        "region": "New York"
+      },
+      {
+        "city": "Traunreut",
+        "region": "New York"
+      }
+    ]
   },
   {
     "firstname": "Andreas",

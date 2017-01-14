@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from "@angular/core";
 import { ContactsService } from "../data/contacts.service";
+import { ContactDto } from '../data/model/ContactDto';
 
 
 @Component({
@@ -10,15 +11,20 @@ import { ContactsService } from "../data/contacts.service";
 })
 export class ContactsComponent implements OnInit {
 
-  @Output()
-  contacts : any;
+  contacts : ContactDto[];
+  selectedContact : ContactDto;
 
-  constructor(private contactsService : ContactsService ) {
-
+  constructor (private contactsService : ContactsService) {
   }
 
-  ngOnInit() {
-    this.contacts = this.contactsService.getContacts();
+  ngOnInit () {
+    this.contactsService.getContacts().subscribe((contacts : ContactDto[]) => {
+      this.contacts = contacts;
+    });
+  }
+
+  onSelectContact(contact : ContactDto) : void {
+    this.selectedContact = contact;
   }
 
 }
