@@ -1,7 +1,6 @@
 import { Request } from '@angular/http';
 
-import { HttpInterceptor } from 'angular2-http-interceptor/lib';
-
+import { HttpInterceptor } from 'angular2-http-interceptor';
 import { TokenResource } from './token-resource';
 
 

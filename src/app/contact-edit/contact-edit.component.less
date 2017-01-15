@@ -1,0 +1,128 @@
+@import (reference) '../app.component.less';
+
+//@color-grey: #505050;
+
+@blur-pixels: 10px;
+@profile-image-height: 225px;
+@profile-image-width: 300px;
+@color-grey: #505050;
+
+.contact-edit .flex-row {
+  display: flex;
+}
+
+.contact-edit {
+  width: 50%;
+  height: auto;
+}
+
+.contact-edit-icon {
+  margin-top: 14px;
+  padding-left: 9px;
+}
+
+.contact-edit-section-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.contact-edit-content-section {
+  margin-left: 16px;
+}
+
+.contact-edit-address {
+  margin: 8px;
+}
+
+.contact-edit-address:first-of-type{
+  margin-top: 16px;
+}
+
+.contact-edit-address:last-of-type{
+  margin-bottom: 16px;
+}
+
+
+.contact-edit {
+  //box-shadow: -4px 0 16px 2px rgba(0, 0, 0, 0.20);
+}
+
+.contact-edit-content {
+  padding: 0 16px 16px 16px;
+}
+
+.mobile-container {
+  display: inline-block;
+}
+
+.u-blur {
+  -webkit-filter: blur(@blur-pixels);
+  -moz-filter: blur(@blur-pixels);
+  -o-filter: blur(@blur-pixels);
+  -ms-filter: blur(@blur-pixels);
+  filter: blur(@blur-pixels);
+  opacity: 0.5;
+}
+
+.profile-image-container {
+  position: relative;
+  width: @profile-image-width;
+  height: @profile-image-height;
+  overflow: hidden;
+}
+
+.profile-image-container > .u-blur {
+  position: absolute;
+  height: @profile-image-height + 2 * @blur-pixels;
+  width: @profile-image-width + 2 * @blur-pixels;
+  margin-top: -@blur-pixels;
+  margin-left: -@blur-pixels;
+}
+
+.profile-image-container .blur-overlay {
+  position: absolute;
+  background-color: white;
+  opacity: 0.5;
+  height: @profile-image-height;
+  width: @profile-image-width;
+}
+
+.image-cropper {
+  position: absolute;
+  top: 40px;
+  left: 100px;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.cropped-image {
+  display: inline;
+  margin-left: -33%;
+  height: 100%;
+  width: auto;
+}
+
+.contact-edit-upload-container {
+  width: 100%;
+}
+
+.contact-edit-picture-dummy {
+  font-size: 120px;
+  margin-left: 35%;
+}
+.contact-edit-name {
+  position: absolute;
+  top: 165px;
+  left: 16px;
+}
+
+.contact-edit-name-underlay {
+  position: absolute;
+  bottom: 0;
+}
+
+.u-grey {
+  color: @color-grey;
+}

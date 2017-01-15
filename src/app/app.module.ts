@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpInterceptorModule } from 'angular2-http-interceptor/lib/index';
+import { HttpInterceptorModule } from 'angular2-http-interceptor';
 import { TokenInterceptor } from './data/token-interceptor/token-interceptor';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
 import { ApiInstantiator } from './data/ApiInstantiator';
 import { MpBlurredScroll } from 'mp-blurred-scroll';
 import { ContactsListPipe } from './contacts-list/contacts-list.pipe';
+import { ContactEditComponent } from './contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,11 @@ import { ContactsListPipe } from './contacts-list/contacts-list.pipe';
     ContactsListComponent,
     ContactDetailsComponent,
     MpBlurredScroll,
-    ContactsListPipe
+    ContactsListPipe,
+    ContactEditComponent
+  ],
+  entryComponents: [
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,

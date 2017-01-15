@@ -1,0 +1,104 @@
+<md-dialog-content>
+  <h4>{{dialogTitle}}</h4>
+  <div class="contact-edit-content">
+
+    <!--
+    <div class="contact-edit-upload-container">
+      <md-icon class="contact-edit-picture-dummy">account_circle</md-icon>
+    </div>
+-->
+    <div class="flex-row contact-edit-section-container">
+      <md-icon class="contact-edit-icon u-grey">account_box</md-icon>
+      <div class="contact-edit-content-section">
+        <md-input [(ngModel)]="contactObject.firstname" placeholder="Firstname"></md-input>
+        <md-input [(ngModel)]="contactObject.lastname" placeholder="Lastname"></md-input>
+      </div>
+    </div>
+
+    <md-divider></md-divider>
+
+    <div class="flex-row contact-edit-section-container">
+      <div class="flex-column">
+        <md-icon class="contact-edit-icon u-grey">phone</md-icon>
+        <button md-icon-button (click)="addPhone()">
+          <md-icon class="md-12">add</md-icon>
+        </button>
+      </div>
+      <div class="flex-column">
+        <div class="contact-edit-content-section" *ngFor="let number of contactObject.phoneNumbers; let i = index">
+          <div class="flex-row">
+            <!-- TODO find out why ngModel=number does not work -->
+            <md-input type="tel" [(ngModel)]="contactObject.phoneNumbers[i]" placeholder="Phone"></md-input>
+            <button md-button (click)="unsetPhone(i)">
+              <md-icon class="md-12">delete</md-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <md-divider></md-divider>
+
+    <div class="flex-row contact-edit-section-container">
+      <div class="flex-column">
+        <md-icon class="contact-edit-icon u-grey">business</md-icon>
+        <button md-icon-button (click)="addAddress()">
+          <md-icon class="md-12" >add</md-icon>
+        </button>
+      </div>
+      <div class="flex-column">
+        <div class="contact-edit-content-section" *ngFor="let address of contactObject.addresses; let i = index">
+          <div class="flex-row">
+            <md-input [(ngModel)]="address.street" placeholder="Street"></md-input>
+            <md-input [(ngModel)]="address.number" placeholder="Number"></md-input>
+            <button md-button (click)="unsetAddress(i)">
+              <md-icon class="md-12">delete</md-icon>
+            </button>
+          </div>
+          <div class="flex-row">
+            <md-input [(ngModel)]="address.city" placeholder="City"></md-input>
+            <md-input [(ngModel)]="address.zip" placeholder="ZIP"></md-input>
+            <md-input [(ngModel)]="address.country" placeholder="Country"></md-input>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <md-divider></md-divider>
+
+    <div class="flex-row contact-edit-section-container">
+      <div class="flex-column">
+        <md-icon class="contact-edit-icon u-grey">email</md-icon>
+        <button md-icon-button (click)="addMail()">
+          <md-icon class="md-12">add</md-icon>
+        </button>
+      </div>
+      <div class="flex-column">
+        <div class="contact-edit-content-section" *ngFor="let mail of contactObject.emailAddresses; let i = index">
+          <div class="flex-row">
+            <md-input type="email" [(ngModel)]="contactObject.emailAddresses[i]" placeholder="Mail"></md-input>
+            <button md-button (click)="unsetMail(i)">
+              <md-icon class="md-12">delete</md-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <md-divider></md-divider>
+    <br>
+    <div class="flex-row contact-edit-section-container">
+      <md-icon class="contact-edit-icon u-grey">cake</md-icon>
+      <div class="contact-edit-content-section">
+        <md-input type="date" [(ngModel)]="contactObject.birthday" placeholder="Birthday"></md-input>
+      </div>
+    </div>
+
+  </div>
+
+</md-dialog-content>
+<md-dialog-actions>
+  <button (click)="dialogRef.close('yes')">Save</button>
+  <button md-dialog-close>Abort</button>
+</md-dialog-actions>
+

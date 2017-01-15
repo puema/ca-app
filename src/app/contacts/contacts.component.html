@@ -7,6 +7,9 @@
     <div class="flex-row full-height">
       <contacts-list [contacts]="contacts" (selectedContact)="onSelectContact($event)"></contacts-list>
       <contact-details [contact]="selectedContact"></contact-details>
+      <button md-fab id="addButton" (click)="openContactDialog()">
+        <md-icon class="md-24">person_add</md-icon>
+      </button>
     </div>
   </div>
   <div class="filler"></div>

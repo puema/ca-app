@@ -13,12 +13,14 @@
   //left: 20%;
 }
 
+@list-width: 270px;
+
 .header-container {
   z-index: 5;
 }
 
 contacts-list {
-  width: 400px;
+  width: @list-width;
   position: relative;
   overflow: hidden;
 }
@@ -32,4 +34,10 @@ contact-details {
   @media (max-width: 1000px) {
     display: none;
   }
+}
+
+#addButton {
+  position: fixed;
+  margin-left: @list-width - 70px;
+  bottom: 20px;
 }
