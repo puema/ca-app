@@ -67,72 +67,64 @@
     "lastname": "Dampf"
   },
   {
-    "firstname": "Hans",
-    "lastname": "Sarpei"
+    "firstname": "Peter",
+    "lastname": "Pan"
+  },
+  {
+    "firstname": "Captain",
+    "lastname": "Hook"
+  },
+  {
+    "firstname": "Tinka",
+    "lastname": "Bell"
   },
   {
     "firstname": "Hans",
-    "lastname": "Huber"
-  },
-  {
-    "firstname": "Hans",
-    "lastname": "Dampf"
-  },
-  {
-    "firstname": "Hans",
-    "lastname": "Sarpei"
+    "lastname": "Kuckindieluft"
   },
   {
     "firstname": "Harvey",
     "lastname": "Spectre"
   },
   {
-    "firstname": "Peter",
-    "lastname": "Anderl"
+    "firstname": "Winnie",
+    "lastname": "Puh"
   },
   {
-    "firstname": "Hans",
-    "lastname": "Huber",
-    "pic": "/assets/dummy.jpeg"
+    "firstname": "Harry",
+    "lastname": "Potter",
+    "imageUri": "/assets/dummy.jpeg"
   },
   {
-    "firstname": "Hans",
-    "lastname": "Dampf",
-    "pic": "/assets/dummy.jpeg"
+    "firstname": "Tom",
+    "lastname": "Riddle"
   },
   {
-    "firstname": "Hans",
-    "lastname": "Sarpei",
-    "pic": "/assets/dummy.jpeg"
+    "firstname": "Ronald",
+    "lastname": "Weasley"
   },
   {
-    "firstname": "Hans",
-    "lastname": "Huber",
-    "pic": "/assets/dummy.jpeg"
+    "firstname": "Hermine",
+    "lastname": "Granger"
   },
   {
-    "firstname": "Hans",
-    "lastname": "Dampf",
-    "pic": "/assets/dummy.jpeg"
+    "firstname": "Donald",
+    "lastname": "Duck"
   },
   {
-    "firstname": "Hans",
-    "lastname": "Sarpei",
-    "pic": "/assets/dummy.jpeg"
+    "firstname": "Donald",
+    "lastname": "Trump"
   },
   {
-    "firstname": "Hans",
-    "lastname": "Huber",
-    "pic": "/assets/dummy.jpeg"
+    "firstname": "Sirius",
+    "lastname": "Black"
   },
   {
-    "firstname": "Hans",
-    "lastname": "Dampf",
-    "pic": "/assets/dummy.jpeg"
+    "firstname": "Martin",
+    "lastname": "Hellman"
   },
   {
-    "firstname": "Hans",
-    "lastname": "Sarpei",
-    "pic": "/assets/dummy.jpeg"
+    "firstname": "Whitfield",
+    "lastname": "Diffie"
   }
 ]

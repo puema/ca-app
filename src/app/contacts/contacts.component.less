@@ -1,15 +1,35 @@
 @import '../app.component.less';
 
+.contacts {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: calc(~'100% - 16px');
+  margin: 8px 0;
+  background-color: white;
+  //position: absolute;
+  //top: 10px;
+  //bottom: 10px;
+  //right: 20%;
+  //left: 20%;
+}
+
 .header-container {
   z-index: 5;
 }
 
-.contacts-list-container {
-  width: 320px;
+contacts-list {
+  width: 400px;
   position: relative;
   overflow: hidden;
 }
 
-.contact-details-container {
+contact-details {
   z-index: 4;
+}
+
+.filler {
+  width: 30%;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 }

@@ -1,9 +1,13 @@
-<div class="contacts flex-column full-height">
-  <div class="header-container">
-    <header></header>
+<div class="flex-row full-height">
+  <div class="filler"></div>
+  <div class="contacts flex-column full-height">
+    <div class="header-container">
+      <header></header>
+    </div>
+    <div class="flex-row full-height">
+      <contacts-list [contacts]="contacts" (selectedContact)="onSelectContact($event)"></contacts-list>
+      <contact-details [contact]="selectedContact"></contact-details>
+    </div>
   </div>
-  <div class="flex-row full-height">
-    <contacts-list [contacts]="contacts" (selectedContact)="onSelectContact($event)" class="contacts-list-container"></contacts-list>
-    <contact-details [contact]="selectedContact" class="contact-details-container"></contact-details>
-  </div>
+  <div class="filler"></div>
 </div>
