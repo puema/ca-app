@@ -10,6 +10,6 @@ export class AppComponent {
   title = 'app works!';
 
   constructor (private mdIconRegistry : MdIconRegistry) {
-    mdIconRegistry.addSvgIconSet('/assets/icons.svg');
+    // mdIconRegistry.addSvgIconSet('/assets/icons.svg');
   }
 }

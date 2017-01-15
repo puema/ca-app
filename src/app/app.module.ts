@@ -34,7 +34,7 @@ import { ContactEditComponent } from './contact-edit/contact-edit.component';
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    HttpInterceptorModule.withInterceptors([TokenInterceptor])
+    // HttpInterceptorModule.withInterceptors([TokenInterceptor])
   ],
   providers: [ApiInstantiator],
   bootstrap: [AppComponent],

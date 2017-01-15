@@ -7,7 +7,7 @@
     "created": "today",
     "birthday": "11/19/1983",
     "image": "image",
-    "imageUri": "/assets/harvey-specter.jpeg",
+    "imageUri": "./assets/harvey-specter.jpeg",
     "addresses": [
       {
         "id": "id",
@@ -93,7 +93,7 @@
   {
     "firstname": "Harry",
     "lastname": "Potter",
-    "imageUri": "/assets/dummy.jpeg"
+    "imageUri": "./assets/dummy.jpeg"
   },
   {
     "firstname": "Tom",
