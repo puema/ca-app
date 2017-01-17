@@ -590,9 +590,16 @@ html, body {
 .font-l {
   font-size: large; }
 
+.hidden {
+  display: none !important; }
+
 @media (max-width: 700px) {
   .tablet-and-greater {
     display: none; } }
+
+@media (min-width: 425px) {
+  .mobile-only {
+    display: none !important; } }
 
 mp-blurred-scroll .content {
   height: calc(100% - 68px) !important;
@@ -604,6 +611,10 @@ mp-blurred-scroll .blurred-content {
 
 .md-input-wrapper {
   position: relative; }
+
+button[md-button] {
+  min-width: 36px;
+  padding: 0; }
 
 contacts-list md-nav-list md-list-item .md-list-text {
   width: auto;
