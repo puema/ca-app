@@ -31,6 +31,7 @@ html, body {
 }
 
 $tablet-breakpoint: 700px;
+$mobile-breakpoint: 425px;
 
 .flex-row {
   display: flex;
@@ -66,9 +67,19 @@ $tablet-breakpoint: 700px;
   font-size: large;
 }
 
+.hidden {
+  display: none !important;
+}
+
 @media (max-width: $tablet-breakpoint) {
   .tablet-and-greater {
     display: none;
+  }
+}
+
+@media (min-width: $mobile-breakpoint) {
+  .mobile-only {
+    display: none !important;
   }
 }
 
@@ -86,6 +97,11 @@ mp-blurred-scroll .blurred-content {
 
 .md-input-wrapper {
   position: relative;
+}
+
+button[md-button] {
+  min-width: 36px;
+  padding: 0;
 }
 
 contacts-list md-nav-list md-list-item .md-list-text {

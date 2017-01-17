@@ -2,11 +2,11 @@
   <div class="filler"></div>
   <div class="contacts flex-column full-height">
     <div class="header-container">
-      <header></header>
+      <header [isBackVisible]="isDetailsActive" (isBackVisibleChange)="isDetailsActive=$event; closeDetails()"></header>
     </div>
     <div class="flex-row full-height">
       <contacts-list [contacts]="contacts" (selectedContact)="onSelectContact($event)"></contacts-list>
-      <contact-details [contact]="selectedContact"></contact-details>
+      <contact-details [contact]="selectedContact" [ngClass]="{'hide-details' : !isDetailsActive}"></contact-details>
       <button md-fab id="addButton" (click)="openContactDialog()">
         <md-icon class="md-24">person_add</md-icon>
       </button>

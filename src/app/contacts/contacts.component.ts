@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ContactsService } from "../data/contacts.service";
 import { ContactDto } from '../data/model/ContactDto';
 import { MdDialog, MdDialogRef } from '@angular/material';
@@ -15,6 +15,7 @@ export class ContactsComponent implements OnInit {
 
   contacts : ContactDto[];
   selectedContact : ContactDto;
+  isDetailsActive : boolean = false;
   dialogRef: MdDialogRef<ContactEditComponent>;
 
   constructor(private contactsService : ContactsService,
@@ -28,8 +29,9 @@ export class ContactsComponent implements OnInit {
     });
   }
 
-  onSelectContact(contact : ContactDto) : void {
+  onSelectContact (contact : ContactDto) : void {
     this.selectedContact = contact;
+    this.isDetailsActive = true;
   }
 
   openContactDialog() : void {

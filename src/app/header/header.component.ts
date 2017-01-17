@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'header',
@@ -7,11 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  primaryColor : string = "primary";
+  @Input()
+  isBackVisible;
+  @Output()
+  isBackVisibleChange : EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  private onBack() : void {
+    this.isBackVisible = false;
+    this.isBackVisibleChange.emit(this.isBackVisible);
   }
 
 }

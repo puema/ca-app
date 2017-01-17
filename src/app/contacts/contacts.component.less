@@ -1,4 +1,4 @@
-@import '../app.component.less';
+@contact-details-width: 300px; // Todo sync with details picture width
 
 .contacts {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
@@ -6,17 +6,16 @@
   height: calc(~'100% - 16px');
   margin: 8px 0;
   background-color: white;
-  //position: absolute;
-  //top: 10px;
-  //bottom: 10px;
-  //right: 20%;
-  //left: 20%;
 }
 
 @list-width: 270px;
 
 .header-container {
   z-index: 5;
+}
+
+.hide-details {
+  margin-right: -(@contact-details-width + 15px);
 }
 
 contacts-list {
@@ -27,12 +26,24 @@ contacts-list {
 
 contact-details {
   z-index: 4;
+  -webkit-transition: margin-right .5s;
+  -moz-transition: margin-right .5s;
+  -ms-transition: margin-right .5s;
+  -o-transition: margin-right .5s;
+  transition: margin-right .5s;
 }
 
 .filler {
   width: 30%;
-  @media (max-width: 1000px) {
+}
+
+@media (max-width: 1000px) {
+  .filler {
     display: none;
+  }
+  .contacts {
+    margin: 0;
+    height: 100%;
   }
 }
 
