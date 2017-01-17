@@ -1161,7 +1161,7 @@ module.exports = ".search-icon {\n  margin-left: 16px;\n  margin-right: 16px;\n}
 /***/ 822:
 /***/ function(module, exports) {
 
-module.exports = ".contacts {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  height: calc(100% - 16px);\n  margin: 8px 0;\n  background-color: white;\n}\n.header-container {\n  z-index: 5;\n}\n.hide-details {\n  margin-right: -315px;\n}\ncontacts-list {\n  width: 270px;\n  position: relative;\n  overflow: hidden;\n}\ncontact-details {\n  z-index: 4;\n  -webkit-transition: margin-right 0.5s;\n  transition: margin-right 0.5s;\n}\n.filler {\n  width: 30%;\n}\n@media (max-width: 1000px) {\n  .filler {\n    display: none;\n  }\n  .contacts {\n    margin: 0;\n    height: 100%;\n  }\n}\n#addButton {\n  position: fixed;\n  margin-left: 200px;\n  bottom: 20px;\n}\n"
+module.exports = ".contacts {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  height: calc(100% - 16px);\n  margin: 8px 0;\n  background-color: white;\n}\n.header-container {\n  z-index: 5;\n}\n.hide-details {\n  margin-right: -315px;\n}\ncontacts-list {\n  width: 400px;\n  position: relative;\n  overflow: hidden;\n}\ncontact-details {\n  z-index: 4;\n  -webkit-transition: margin-right 0.5s;\n  transition: margin-right 0.5s;\n}\n.filler {\n  width: 30%;\n}\n@media (max-width: 1000px) {\n  .filler {\n    display: none;\n  }\n  .contacts {\n    margin: 0;\n    height: 100%;\n  }\n}\n#addButton {\n  position: fixed;\n  margin-left: 330px;\n  bottom: 20px;\n}\n"
 
 /***/ },
 
@@ -1203,7 +1203,7 @@ module.exports = "<mp-blurred-scroll>\n\n  <mp-blurred-scroll-header>\n    <md-i
 /***/ 828:
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"flex-row full-height\">\n  <div class=\"filler\"></div>\n  <div class=\"contacts flex-column full-height\">\n    <div class=\"header-container\">\n      <header [isBackVisible]=\"isDetailsActive\" (isBackVisibleChange)=\"isDetailsActive=$event; closeDetails()\"></header>\n    </div>\n    <div class=\"flex-row full-height\">\n      <contacts-list [contacts]=\"contacts\" (selectedContact)=\"onSelectContact($event)\"></contacts-list>\n      <contact-details [contact]=\"selectedContact\" [ngClass]=\"{'hide-details' : !isDetailsActive}\"></contact-details>\n      <button md-fab id=\"addButton\" (click)=\"openContactDialog()\">\n        <md-icon class=\"md-24\">person_add</md-icon>\n      </button>\n    </div>\n  </div>\n  <div class=\"filler\"></div>\n</div>\n"
+module.exports = "<div class=\"flex-row full-height\">\n  <div class=\"filler\"></div>\n  <div class=\"contacts flex-column full-height\">\n    <div class=\"header-container\">\n      <header [isBackVisible]=\"isDetailsActive\" (isBackVisibleChange)=\"isDetailsActive=$event\"></header>\n    </div>\n    <div class=\"flex-row full-height\">\n      <contacts-list [contacts]=\"contacts\" (selectedContact)=\"onSelectContact($event)\"></contacts-list>\n      <contact-details [contact]=\"selectedContact\" [ngClass]=\"{'hide-details' : !isDetailsActive}\"></contact-details>\n      <button md-fab id=\"addButton\" (click)=\"openContactDialog()\">\n        <md-icon class=\"md-24\">person_add</md-icon>\n      </button>\n    </div>\n  </div>\n  <div class=\"filler\"></div>\n</div>\n"
 
 /***/ },
 
