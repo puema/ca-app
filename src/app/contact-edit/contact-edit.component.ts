@@ -8,7 +8,7 @@ import * as models from '../data/model/models';
 })
 export class ContactEditComponent implements OnInit {
 
-  contactObject: models.ContactDto;
+  contactObject: any; // Todo set ContactsDto as soon as phoneNumbers are available
 
   dialogTitle: string = 'Edit contact';
   mode: string = 'edit';
