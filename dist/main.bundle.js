@@ -1,6 +1,6 @@
 webpackJsonp([0,3],{
 
-/***/ 1093:
+/***/ 1094:
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(502);
@@ -8,7 +8,7 @@ module.exports = __webpack_require__(502);
 
 /***/ },
 
-/***/ 261:
+/***/ 262:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -78,8 +78,8 @@ var ContactEditComponent = (function () {
 ContactEditComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'contact-edit',
-        template: __webpack_require__(826),
-        styles: [__webpack_require__(820)]
+        template: __webpack_require__(827),
+        styles: [__webpack_require__(821)]
     }),
     __metadata("design:paramtypes", [])
 ], ContactEditComponent);
@@ -94,6 +94,7 @@ ContactEditComponent = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_src_security_dom_sanitization_service__ = __webpack_require__(176);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -106,24 +107,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AppComponent = (function () {
-    function AppComponent(mdIconRegistry) {
+    function AppComponent(mdIconRegistry, sanitizer) {
         this.mdIconRegistry = mdIconRegistry;
+        this.sanitizer = sanitizer;
         this.title = 'app works!';
-        // mdIconRegistry.addSvgIconSet('/assets/icons.svg');
+        this.iconsFile = './assets/icons.svg';
+        mdIconRegistry.addSvgIconSet(this.sanitizer.bypassSecurityTrustResourceUrl(this.iconsFile));
+        // mdIconRegistry.addSvgIconSet(this.iconsFile);
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
-        template: __webpack_require__(824),
-        styles: [__webpack_require__(818)]
+        template: __webpack_require__(825),
+        styles: [__webpack_require__(819)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdIconRegistry"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdIconRegistry"]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdIconRegistry"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdIconRegistry"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_src_security_dom_sanitization_service__["b" /* DomSanitizerImpl */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_src_security_dom_sanitization_service__["b" /* DomSanitizerImpl */]) === "function" && _b || Object])
 ], AppComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=/Users/marcel/Development/Web/ca-app/src/app.component.js.map
 
 /***/ },
@@ -264,9 +269,10 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__contacts_list_contacts_list_component__ = __webpack_require__(653);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__contact_details_contact_details_component__ = __webpack_require__(652);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__data_ApiInstantiator__ = __webpack_require__(424);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_mp_blurred_scroll__ = __webpack_require__(815);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_mp_blurred_scroll__ = __webpack_require__(816);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__contacts_list_contacts_list_pipe__ = __webpack_require__(654);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__contact_edit_contact_edit_component__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__contact_edit_contact_edit_component__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_platform_browser_src_security_dom_sanitization_service__ = __webpack_require__(176);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -277,6 +283,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -317,7 +324,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_material__["MaterialModule"].forRoot(),
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_10__data_ApiInstantiator__["a" /* ApiInstantiator */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_10__data_ApiInstantiator__["a" /* ApiInstantiator */], __WEBPACK_IMPORTED_MODULE_14__angular_platform_browser_src_security_dom_sanitization_service__["b" /* DomSanitizerImpl */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]],
         schemas: [__WEBPACK_IMPORTED_MODULE_1__angular_core__["CUSTOM_ELEMENTS_SCHEMA"]],
     }),
@@ -335,7 +342,7 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_model_ContactDto__ = __webpack_require__(658);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_color_util__ = __webpack_require__(425);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contact_edit_contact_edit_component__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contact_edit_contact_edit_component__ = __webpack_require__(262);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(172);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ContactDetailsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -383,8 +390,8 @@ __decorate([
 ContactDetailsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'contact-details',
-        template: __webpack_require__(825),
-        styles: [__webpack_require__(819)],
+        template: __webpack_require__(826),
+        styles: [__webpack_require__(820)],
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_material__["MdDialog"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_material__["MdDialog"]) === "function" && _b || Object])
 ], ContactDetailsComponent);
@@ -435,8 +442,8 @@ __decorate([
 ContactsListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'contacts-list',
-        template: __webpack_require__(827),
-        styles: [__webpack_require__(821)],
+        template: __webpack_require__(828),
+        styles: [__webpack_require__(822)],
     }),
     __metadata("design:paramtypes", [])
 ], ContactsListComponent);
@@ -496,7 +503,7 @@ ContactsListPipe = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_contacts_service__ = __webpack_require__(657);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contact_edit_contact_edit_component__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contact_edit_contact_edit_component__ = __webpack_require__(262);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ContactsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -544,8 +551,8 @@ var ContactsComponent = (function () {
 ContactsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'contacts',
-        template: __webpack_require__(828),
-        styles: [__webpack_require__(822)],
+        template: __webpack_require__(829),
+        styles: [__webpack_require__(823)],
         providers: [__WEBPACK_IMPORTED_MODULE_1__data_contacts_service__["a" /* ContactsService */]]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__data_contacts_service__["a" /* ContactsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__data_contacts_service__["a" /* ContactsService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdDialog"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdDialog"]) === "function" && _b || Object])
@@ -797,7 +804,7 @@ var ContactsService = (function () {
         // return this.endpoint.contactsGetAll();
         return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].create(function (observer) {
             // Yield a single value and complete
-            observer.next(__webpack_require__(814));
+            observer.next(__webpack_require__(815));
             observer.complete();
         });
     };
@@ -894,8 +901,8 @@ __decorate([
 HeaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'header',
-        template: __webpack_require__(829),
-        styles: [__webpack_require__(823)]
+        template: __webpack_require__(830),
+        styles: [__webpack_require__(824)]
     }),
     __metadata("design:paramtypes", [])
 ], HeaderComponent);
@@ -970,10 +977,13 @@ var environment = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(677);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(1092);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(1093);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_hammerjs__ = __webpack_require__(814);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_hammerjs__);
 // This file includes polyfills needed by Angular 2 and is loaded before
 // the app. You can add your own extra polyfills to this file.
+
 
 
 
@@ -994,7 +1004,7 @@ var environment = {
 
 /***/ },
 
-/***/ 814:
+/***/ 815:
 /***/ function(module, exports) {
 
 module.exports = [
@@ -1130,89 +1140,89 @@ module.exports = [
 
 /***/ },
 
-/***/ 818:
+/***/ 819:
 /***/ function(module, exports) {
 
 module.exports = ""
 
 /***/ },
 
-/***/ 819:
+/***/ 820:
 /***/ function(module, exports) {
 
 module.exports = ".contact-details .flex-row {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.contact-details-icon {\n  margin-top: 14px;\n}\n.contact-details-content-section {\n  margin-left: 16px;\n}\n.contact-details-address {\n  margin: 8px;\n}\n.contact-details-address:first-of-type {\n  margin-top: 16px;\n}\n.contact-details-address:last-of-type {\n  margin-bottom: 16px;\n}\nmd-divider:last-of-type {\n  display: none;\n}\n.contact-details {\n  box-shadow: -4px 0 16px 2px rgba(0, 0, 0, 0.2);\n}\n.contact-details-content {\n  padding: 0 16px 16px 16px;\n}\n.mobile-container {\n  display: inline-block;\n}\n.u-blur {\n  -webkit-filter: blur(8px);\n  -moz-filter: blur(8px);\n  -o-filter: blur(8px);\n  -ms-filter: blur(8px);\n  filter: blur(8px);\n  opacity: 0.5;\n}\n.profile-image-container {\n  position: relative;\n  width: 300px;\n  height: 225px;\n  overflow: hidden;\n}\n.profile-image-container > .u-blur {\n  position: absolute;\n  height: 316px;\n  width: 316px;\n  margin-top: -8px;\n  margin-left: -8px;\n}\n.profile-image-container .blur-overlay {\n  position: absolute;\n  background-color: white;\n  opacity: 0.5;\n  height: 225px;\n  width: 300px;\n}\n.image-cropper {\n  position: absolute;\n  top: 40px;\n  left: 100px;\n  width: 100px;\n  height: 100px;\n  overflow: hidden;\n  border-radius: 50%;\n}\n.cropped-image {\n  display: inline;\n  height: 100%;\n  width: auto;\n}\n.dummy-image {\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.dummy-image-initials {\n  margin: 0;\n  color: white;\n  display: inline;\n  font-size: 40pt;\n}\n.blurred-dummy-image-initials {\n  margin: 0;\n  color: white;\n  display: inline;\n  font-size: 120pt;\n}\n.contact-details-name {\n  position: absolute;\n  bottom: 10px;\n  width: 268px;\n  padding: 0 16px 0 16px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n.contact-details-name h2 {\n  margin: 0;\n}\n.contact-details-name-underlay {\n  position: absolute;\n  bottom: 0;\n}\n.u-grey {\n  color: #505050;\n}\n"
 
 /***/ },
 
-/***/ 820:
+/***/ 821:
 /***/ function(module, exports) {
 
 module.exports = ".contact-edit .flex-row {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.contact-edit {\n  width: 50%;\n  height: auto;\n}\n.contact-edit-icon {\n  margin-top: 14px;\n  padding-left: 9px;\n}\n.contact-edit-section-container {\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n.contact-edit-content-section {\n  margin-left: 16px;\n}\n.contact-edit-address {\n  margin: 8px;\n}\n.contact-edit-address:first-of-type {\n  margin-top: 16px;\n}\n.contact-edit-address:last-of-type {\n  margin-bottom: 16px;\n}\n.contact-edit-content {\n  padding: 0 16px 16px 16px;\n}\n.mobile-container {\n  display: inline-block;\n}\n.u-blur {\n  -webkit-filter: blur(10px);\n  -moz-filter: blur(10px);\n  -o-filter: blur(10px);\n  -ms-filter: blur(10px);\n  filter: blur(10px);\n  opacity: 0.5;\n}\n.profile-image-container {\n  position: relative;\n  width: 300px;\n  height: 225px;\n  overflow: hidden;\n}\n.profile-image-container > .u-blur {\n  position: absolute;\n  height: 245px;\n  width: 320px;\n  margin-top: -10px;\n  margin-left: -10px;\n}\n.profile-image-container .blur-overlay {\n  position: absolute;\n  background-color: white;\n  opacity: 0.5;\n  height: 225px;\n  width: 300px;\n}\n.image-cropper {\n  position: absolute;\n  top: 40px;\n  left: 100px;\n  width: 100px;\n  height: 100px;\n  overflow: hidden;\n  border-radius: 50%;\n}\n.cropped-image {\n  display: inline;\n  margin-left: -33%;\n  height: 100%;\n  width: auto;\n}\n.contact-edit-upload-container {\n  width: 100%;\n}\n.contact-edit-picture-dummy {\n  font-size: 120px;\n  margin-left: 35%;\n}\n.contact-edit-name {\n  position: absolute;\n  top: 165px;\n  left: 16px;\n}\n.contact-edit-name-underlay {\n  position: absolute;\n  bottom: 0;\n}\n.u-grey {\n  color: #505050;\n}\n"
 
 /***/ },
 
-/***/ 821:
+/***/ 822:
 /***/ function(module, exports) {
 
 module.exports = ".search-icon {\n  margin-left: 16px;\n  margin-right: 16px;\n}\n.search-input {\n  width: 100%;\n  box-sizing: border-box;\n  padding-right: 32px;\n  margin-top: 8px;\n  margin-left: 16px;\n}\n.dummy-image {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.dummy-image-initials {\n  margin: 0;\n  color: white;\n  display: inline;\n  font-size: 16pt;\n}\n.phone-number {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n"
 
 /***/ },
 
-/***/ 822:
+/***/ 823:
 /***/ function(module, exports) {
 
 module.exports = ".contacts {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  height: calc(100% - 16px);\n  margin: 8px 0;\n  background-color: white;\n}\n.header-container {\n  z-index: 5;\n}\n.hide-details {\n  margin-right: -315px;\n}\ncontacts-list {\n  width: 400px;\n  position: relative;\n  overflow: hidden;\n}\ncontact-details {\n  z-index: 4;\n  -webkit-transition: margin-right 0.5s;\n  transition: margin-right 0.5s;\n}\n.filler {\n  width: 30%;\n}\n@media (max-width: 1000px) {\n  .filler {\n    display: none;\n  }\n  .contacts {\n    margin: 0;\n    height: 100%;\n  }\n}\n#addButton {\n  position: fixed;\n  margin-left: 330px;\n  bottom: 20px;\n}\n"
 
 /***/ },
 
-/***/ 823:
+/***/ 824:
 /***/ function(module, exports) {
 
 module.exports = ".header {\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);\n}\n.header-content {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  box-sizing: border-box;\n  width: 100%;\n  height: 64px;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n.header-icon {\n  margin-left: 16px;\n  margin-right: 8px;\n}\n"
 
 /***/ },
 
-/***/ 824:
+/***/ 825:
 /***/ function(module, exports) {
 
 module.exports = "<contacts></contacts>\n"
 
 /***/ },
 
-/***/ 825:
+/***/ 826:
 /***/ function(module, exports) {
 
 module.exports = "<div *ngIf=\"contact\" class=\"contact-details\">\n  <div class=\"profile-image-container\">\n    <img *ngIf=\"contact.imageUri\" class=\"u-blur\" src={{contact.imageUri}}>\n\n    <!--if no image is available-->\n    <div *ngIf=\"!contact.imageUri\" class=\"dummy-image u-blur\"\n         [style.background-color]=\"getColor(contact)\">\n      <p class=\"blurred-dummy-image-initials thin\">\n        {{contact.firstname.charAt(0).toUpperCase()}}{{contact.lastname.charAt(0).toUpperCase()}}\n      </p>\n    </div>\n    <div class=\"blur-overlay\"></div>\n\n    <div class=\"image-cropper\">\n      <img *ngIf=\"contact.imageUri\" class=\"cropped-image\" src={{contact.imageUri}}/>\n\n      <!--if no image is available-->\n      <div *ngIf=\"!contact.imageUri\" class=\"dummy-image\"\n           [style.background-color]=\"getColor(contact)\">\n        <p class=\"dummy-image-initials thin\">\n          {{contact.firstname.charAt(0).toUpperCase()}}{{contact.lastname.charAt(0).toUpperCase()}}\n        </p>\n      </div>\n    </div>\n\n    <img class=\"contact-details-name-underlay\" src=\"./assets/contact-details-name-underlay.svg\"/>\n    <div class=\"contact-details-name\">\n      <h2>{{contact.firstname}} {{contact.lastname}}</h2>\n      <button md-button (click)=\"openEditDialog()\">\n        <md-icon class=\"edit-icon u-grey\">edit</md-icon>\n      </button>\n    </div>\n  </div>\n\n  <div class=\"contact-details-content\">\n\n    <div *ngIf=\"contact.phoneNumbers && contact.phoneNumbers.length\" class=\"flex-row\">\n      <md-icon class=\"contact-details-icon u-grey\">phone</md-icon>\n      <div class=\"contact-details-content-section\">\n        <p *ngFor='let number of contact.phoneNumbers'>{{number}}</p>\n      </div>\n    </div>\n    <md-divider *ngIf=\"contact.phoneNumbers && contact.phoneNumbers.length\"></md-divider>\n\n\n    <div *ngIf=\"contact.emailAddresses && contact.emailAddresses.length\" class=\"flex-row\">\n      <md-icon class=\"contact-details-icon u-grey\">mail</md-icon>\n      <div class=\"contact-details-content-section\">\n        <p *ngFor='let mail of contact.emailAddresses'>{{mail}}</p>\n      </div>\n    </div>\n    <md-divider *ngIf=\"contact.emailAddresses && contact.emailAddresses.length\"></md-divider>\n\n    <div *ngFor='let address of contact.addresses' class=\"flex-row\">\n      <md-icon class=\"contact-details-icon u-grey\">business</md-icon>\n      <div class=\"contact-details-content-section\">\n        <p class=\"contact-details-address\">{{address.number}} {{address.street}}</p>\n        <p class=\"contact-details-address\">{{address.zip}} {{address.city}}</p>\n        <p class=\"contact-details-address\">{{address.region}}</p>\n        <p class=\"contact-details-address\">{{address.country}}</p>\n      </div>\n    </div>\n    <md-divider *ngIf=\"contact.addresses && contact.addresses.length\"></md-divider>\n\n    <div *ngIf=\"contact.birthday\" class=\"flex-row\">\n      <md-icon class=\"contact-details-icon u-grey\">cake</md-icon>\n      <div class=\"contact-details-content-section\">\n        <p>{{contact.birthday}}</p>\n      </div>\n    </div>\n    <md-divider *ngIf=\"contact.birthday\"></md-divider>\n\n  </div>\n</div>\n"
 
 /***/ },
 
-/***/ 826:
+/***/ 827:
 /***/ function(module, exports) {
 
 module.exports = "<md-dialog-content>\n  <h4>{{dialogTitle}}</h4>\n  <div class=\"contact-edit-content\">\n\n    <!--\n    <div class=\"contact-edit-upload-container\">\n      <md-icon class=\"contact-edit-picture-dummy\">account_circle</md-icon>\n    </div>\n-->\n    <div class=\"flex-row contact-edit-section-container\">\n      <md-icon class=\"contact-edit-icon u-grey\">account_box</md-icon>\n      <div class=\"contact-edit-content-section\">\n        <md-input [(ngModel)]=\"contactObject.firstname\" placeholder=\"Firstname\"></md-input>\n        <md-input [(ngModel)]=\"contactObject.lastname\" placeholder=\"Lastname\"></md-input>\n      </div>\n    </div>\n\n    <md-divider></md-divider>\n\n    <div class=\"flex-row contact-edit-section-container\">\n      <div class=\"flex-column\">\n        <md-icon class=\"contact-edit-icon u-grey\">phone</md-icon>\n        <button md-icon-button (click)=\"addPhone()\">\n          <md-icon class=\"md-12\">add</md-icon>\n        </button>\n      </div>\n      <div class=\"flex-column\">\n        <div class=\"contact-edit-content-section\" *ngFor=\"let number of contactObject.phoneNumbers; let i = index\">\n          <div class=\"flex-row\">\n            <!-- TODO find out why ngModel=number does not work -->\n            <md-input type=\"tel\" [(ngModel)]=\"contactObject.phoneNumbers[i]\" placeholder=\"Phone\"></md-input>\n            <button md-button (click)=\"unsetPhone(i)\">\n              <md-icon class=\"md-12\">delete</md-icon>\n            </button>\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <md-divider></md-divider>\n\n    <div class=\"flex-row contact-edit-section-container\">\n      <div class=\"flex-column\">\n        <md-icon class=\"contact-edit-icon u-grey\">business</md-icon>\n        <button md-icon-button (click)=\"addAddress()\">\n          <md-icon class=\"md-12\" >add</md-icon>\n        </button>\n      </div>\n      <div class=\"flex-column\">\n        <div class=\"contact-edit-content-section\" *ngFor=\"let address of contactObject.addresses; let i = index\">\n          <div class=\"flex-row\">\n            <md-input [(ngModel)]=\"address.street\" placeholder=\"Street\"></md-input>\n            <md-input [(ngModel)]=\"address.number\" placeholder=\"Number\"></md-input>\n            <button md-button (click)=\"unsetAddress(i)\">\n              <md-icon class=\"md-12\">delete</md-icon>\n            </button>\n          </div>\n          <div class=\"flex-row\">\n            <md-input [(ngModel)]=\"address.city\" placeholder=\"City\"></md-input>\n            <md-input [(ngModel)]=\"address.zip\" placeholder=\"ZIP\"></md-input>\n            <md-input [(ngModel)]=\"address.country\" placeholder=\"Country\"></md-input>\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <md-divider></md-divider>\n\n    <div class=\"flex-row contact-edit-section-container\">\n      <div class=\"flex-column\">\n        <md-icon class=\"contact-edit-icon u-grey\">email</md-icon>\n        <button md-icon-button (click)=\"addMail()\">\n          <md-icon class=\"md-12\">add</md-icon>\n        </button>\n      </div>\n      <div class=\"flex-column\">\n        <div class=\"contact-edit-content-section\" *ngFor=\"let mail of contactObject.emailAddresses; let i = index\">\n          <div class=\"flex-row\">\n            <md-input type=\"email\" [(ngModel)]=\"contactObject.emailAddresses[i]\" placeholder=\"Mail\"></md-input>\n            <button md-button (click)=\"unsetMail(i)\">\n              <md-icon class=\"md-12\">delete</md-icon>\n            </button>\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <md-divider></md-divider>\n    <br>\n    <div class=\"flex-row contact-edit-section-container\">\n      <md-icon class=\"contact-edit-icon u-grey\">cake</md-icon>\n      <div class=\"contact-edit-content-section\">\n        <md-input type=\"date\" [(ngModel)]=\"contactObject.birthday\" placeholder=\"Birthday\"></md-input>\n      </div>\n    </div>\n\n  </div>\n\n</md-dialog-content>\n<md-dialog-actions>\n  <button (click)=\"dialogRef.close('yes')\">Save</button>\n  <button md-dialog-close>Abort</button>\n</md-dialog-actions>\n\n"
 
 /***/ },
 
-/***/ 827:
+/***/ 828:
 /***/ function(module, exports) {
 
 module.exports = "<mp-blurred-scroll>\n\n  <mp-blurred-scroll-header>\n    <md-input #searchBox class=\"search-input\" placeholder=\"search\"\n              align=\"start\">\n      <md-icon class=\"search-icon\" md-prefix>search</md-icon>\n    </md-input>\n  </mp-blurred-scroll-header>\n\n  <mp-blurred-scroll-content>\n    <md-nav-list>\n      <md-list-item (click)=\"onClick(contact)\" *ngFor=\"let contact of contacts | contactsListPipe:searchBox.value;\">\n        <img *ngIf=\"contact.imageUri\" md-list-avatar src=\"{{contact.imageUri}}\" alt=\"not found\">\n        <div *ngIf=\"!contact.imageUri\" md-list-avatar class=\"dummy-image\"\n             [style.background-color]=\"getColor(contact)\">\n          <p class=\"dummy-image-initials thin\">\n            {{contact.firstname.charAt(0).toUpperCase()}}{{contact.lastname.charAt(0).toUpperCase()}}\n          </p>\n        </div>\n        <h3 md-line> {{contact.lastname}} </h3>\n        <p md-line>\n          <span> {{contact.firstname}} </span>\n        </p>\n        <p *ngIf=\"contact.phoneNumbers && contact.phoneNumbers[0]\" class=\"phone-number tablet-and-greater\">{{contact.phoneNumbers[0]}}</p>\n      </md-list-item>\n    </md-nav-list>\n  </mp-blurred-scroll-content>\n\n</mp-blurred-scroll>\n"
 
 /***/ },
 
-/***/ 828:
+/***/ 829:
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"flex-row full-height\">\n  <div class=\"filler\"></div>\n  <div class=\"contacts flex-column full-height\">\n    <div class=\"header-container\">\n      <header [isBackVisible]=\"isDetailsActive\" (isBackVisibleChange)=\"isDetailsActive=$event\"></header>\n    </div>\n    <div class=\"flex-row full-height\">\n      <contacts-list [contacts]=\"contacts\" (selectedContact)=\"onSelectContact($event)\"></contacts-list>\n      <contact-details [contact]=\"selectedContact\" [ngClass]=\"{'hide-details' : !isDetailsActive}\"></contact-details>\n      <button md-fab id=\"addButton\" (click)=\"openContactDialog()\">\n        <md-icon class=\"md-24\">person_add</md-icon>\n      </button>\n    </div>\n  </div>\n  <div class=\"filler\"></div>\n</div>\n"
+module.exports = "<div class=\"flex-row full-height\">\n  <div class=\"filler\"></div>\n  <div class=\"contacts flex-column full-height\">\n    <div class=\"header-container\">\n      <header [(isBackVisible)]=\"isDetailsActive\"></header>\n    </div>\n    <div class=\"flex-row full-height\">\n      <contacts-list [contacts]=\"contacts\" (selectedContact)=\"onSelectContact($event)\"></contacts-list>\n      <contact-details [contact]=\"selectedContact\" [ngClass]=\"{'hide-details' : !isDetailsActive}\"></contact-details>\n      <button md-fab id=\"addButton\" (click)=\"openContactDialog()\">\n        <md-icon class=\"md-24\">person_add</md-icon>\n      </button>\n    </div>\n  </div>\n  <div class=\"filler\"></div>\n</div>\n"
 
 /***/ },
 
-/***/ 829:
+/***/ 830:
 /***/ function(module, exports) {
 
 module.exports = "<div class=\"header\">\n  <md-toolbar color=\"primary\">\n    <div class=\"header-content\">\n      <button md-button (click)=\"onBack()\" [ngClass]=\"{hidden : !isBackVisible}\" class=\"mobile-only\">\n        <md-icon >arrow_back</md-icon>\n      </button>\n      <span class=\"tablet-and-greater flex-grow-2\">Torpedo Maximum Contacts</span>\n      <div class=\"flex-row vertical-center font-l\">\n        <md-icon class=\"header-icon\" svgIcon=\"account\"></md-icon>\n        <span class=\"thin\">Max Mustermann</span>\n      </div>\n      <div class=\"flex-row vertical-center font-l\">\n        <md-icon class=\"header-icon\" svgIcon=\"logout\"></md-icon>\n        <span class=\"thin\">Logout</span>\n      </div>\n    </div>\n  </md-toolbar>\n</div>\n"
 
 /***/ }
 
-},[1093]);
+},[1094]);
 //# sourceMappingURL=main.bundle.map
