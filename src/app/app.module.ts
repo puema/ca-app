@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpInterceptorModule } from 'angular2-http-interceptor';
 import { TokenInterceptor } from './data/token-interceptor/token-interceptor';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdIcon, MdIconRegistry } from '@angular/material';
 import { AppComponent } from './app.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,6 +14,7 @@ import { ApiInstantiator } from './data/ApiInstantiator';
 import { MpBlurredScroll } from 'mp-blurred-scroll';
 import { ContactsListPipe } from './contacts-list/contacts-list.pipe';
 import { ContactEditComponent } from './contact-edit/contact-edit.component';
+import { DomSanitizerImpl } from '@angular/platform-browser/src/security/dom_sanitization_service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { ContactEditComponent } from './contact-edit/contact-edit.component';
     MaterialModule.forRoot(),
     // HttpInterceptorModule.withInterceptors([TokenInterceptor])
   ],
-  providers: [ApiInstantiator],
+  providers: [ApiInstantiator, DomSanitizerImpl],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

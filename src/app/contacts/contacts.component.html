@@ -2,7 +2,7 @@
   <div class="filler"></div>
   <div class="contacts flex-column full-height">
     <div class="header-container">
-      <header [isBackVisible]="isDetailsActive" (isBackVisibleChange)="isDetailsActive=$event"></header>
+      <header [(isBackVisible)]="isDetailsActive"></header>
     </div>
     <div class="flex-row full-height">
       <contacts-list [contacts]="contacts" (selectedContact)="onSelectContact($event)"></contacts-list>
