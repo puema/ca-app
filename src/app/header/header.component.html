@@ -7,9 +7,15 @@
       <span class="tablet-and-greater flex-grow-2">Torpedo Maximum Contacts</span>
       <div class="flex-row vertical-center font-l">
         <md-icon class="header-icon" svgIcon="account"></md-icon>
-        <span class="thin">Max Mustermann</span>
+        <span class="thin user-name">Max Mustermann</span>
       </div>
-      <div class="flex-row vertical-center font-l">
+      <!-- User is logged out -->
+      <button *ngIf="!isUserLoggedIn" (click)="onLogin()" md-button class="flex-row vertical-center">
+        <md-icon class="header-icon" svgIcon="login"></md-icon>
+        <span class="thin">Login</span>
+      </button>
+      <!-- User is logged in -->
+      <div (click)="onLogin()" *ngIf="isUserLoggedIn" class="flex-row vertical-center font-l">
         <md-icon class="header-icon" svgIcon="logout"></md-icon>
         <span class="thin">Logout</span>
       </div>

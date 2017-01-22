@@ -16,10 +16,10 @@ export class ContactsComponent implements OnInit {
   contacts : ContactDto[];
   selectedContact : ContactDto;
   isDetailsActive : boolean = false;
-  dialogRef: MdDialogRef<ContactEditComponent>;
+  dialogRef : MdDialogRef<ContactEditComponent>;
 
-  constructor(private contactsService : ContactsService,
-  public dialog: MdDialog) {
+  constructor (private contactsService : ContactsService,
+               public dialog : MdDialog) {
 
   }
 
@@ -34,7 +34,7 @@ export class ContactsComponent implements OnInit {
     this.isDetailsActive = true;
   }
 
-  openContactDialog() : void {
+  openContactDialog () : void {
     console.log('opening');
     this.dialogRef = this.dialog.open(ContactEditComponent, {
       disableClose: false,

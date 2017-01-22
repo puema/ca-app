@@ -15,7 +15,9 @@ export class ContactsService {
   }
 
   public getContacts() : Observable<ContactDto[]> {
+    // TODO switch to real API
     // return this.endpoint.contactsGetAll();
+
     return Observable.create(observer => {
       // Yield a single value and complete
       observer.next(require('../../../contactMock.json'));

@@ -67,6 +67,10 @@ $mobile-breakpoint: 425px;
   font-size: large;
 }
 
+.font-m {
+  font-size: medium;
+}
+
 .hidden {
   display: none !important;
 }
@@ -97,11 +101,6 @@ mp-blurred-scroll .blurred-content {
 
 .md-input-wrapper {
   position: relative;
-}
-
-button[md-button] {
-  min-width: 36px;
-  padding: 0;
 }
 
 contacts-list md-nav-list md-list-item .md-list-text {

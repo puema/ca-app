@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 const SESSION_TOKEN_NAME : string = 'torpedo.access-token';
 
 /**
@@ -8,6 +9,7 @@ const SESSION_TOKEN_NAME : string = 'torpedo.access-token';
  *
  * Note that persisting the token is a separate action.
  */
+@Injectable()
 export class TokenResource {
 
   private accessToken : string = null;

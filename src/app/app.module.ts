@@ -2,9 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpInterceptorModule } from 'angular2-http-interceptor';
-import { TokenInterceptor } from './data/token-interceptor/token-interceptor';
-import { MaterialModule, MdIcon, MdIconRegistry } from '@angular/material';
+import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,6 +13,13 @@ import { MpBlurredScroll } from 'mp-blurred-scroll';
 import { ContactsListPipe } from './contacts-list/contacts-list.pipe';
 import { ContactEditComponent } from './contact-edit/contact-edit.component';
 import { DomSanitizerImpl } from '@angular/platform-browser/src/security/dom_sanitization_service';
+import { LoginService } from './login.service';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpInterceptorModule } from 'angular2-http-interceptor';
+import { TokenInterceptor } from './data/token-interceptor/token-interceptor';
+import { TokenResource } from './data/token-interceptor/token-resource';
+
+const routes: Routes = [];
 
 @NgModule({
   declarations: [
@@ -34,10 +39,16 @@ import { DomSanitizerImpl } from '@angular/platform-browser/src/security/dom_san
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule.forRoot(routes),
     MaterialModule.forRoot(),
-    // HttpInterceptorModule.withInterceptors([TokenInterceptor])
+    HttpInterceptorModule.withInterceptors([TokenInterceptor])
   ],
-  providers: [ApiInstantiator, DomSanitizerImpl],
+  providers: [
+    ApiInstantiator,
+    DomSanitizerImpl,
+    LoginService,
+    TokenResource
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
