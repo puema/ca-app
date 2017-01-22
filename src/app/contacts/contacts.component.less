@@ -25,13 +25,19 @@ contacts-list {
   overflow: hidden;
 }
 
-contact-details {
+contact-details, contact-edit {
   z-index: 4;
   -webkit-transition: margin-right .5s;
   -moz-transition: margin-right .5s;
   -ms-transition: margin-right .5s;
   -o-transition: margin-right .5s;
   transition: margin-right .5s;
+}
+
+contact-edit {
+  max-width: 310px;
+  overflow: auto;
+  max-height: 100%;
 }
 
 .filler {

@@ -16,10 +16,9 @@ export class ContactsComponent implements OnInit {
   contacts : ContactDto[];
   selectedContact : ContactDto;
   isDetailsActive : boolean = false;
-  dialogRef : MdDialogRef<ContactEditComponent>;
+  isEditingActive : boolean = false;
 
-  constructor (private contactsService : ContactsService,
-               public dialog : MdDialog) {
+  constructor(private contactsService : ContactsService) {
 
   }
 
@@ -32,18 +31,44 @@ export class ContactsComponent implements OnInit {
   onSelectContact (contact : ContactDto) : void {
     this.selectedContact = contact;
     this.isDetailsActive = true;
+    this.isEditingActive = false;
   }
 
-  openContactDialog () : void {
-    console.log('opening');
-    this.dialogRef = this.dialog.open(ContactEditComponent, {
-      disableClose: false,
-      width: '80%'
-    });
-
-    this.dialogRef.afterClosed().subscribe(result => {
-      console.log('result: ' + result);
-      this.dialogRef = null;
-    });
+  newContact() : void {
+    this.selectedContact = undefined;
+    this.isEditingActive = true;
+    this.isDetailsActive = false;
   }
+
+  addContact(contact: any) {
+    //TODO persist in backend
+    //this.contactsService.addContact(contact);
+    this.selectedContact = contact;
+    this.contacts.push(contact);
+    this.isEditingActive = false;
+    this.isDetailsActive = true;
+  }
+
+  updateContact(contact: any) {
+    //TODO persist in backend
+    //this.contactsService.update(contact);
+    this.selectedContact = contact;
+    this.isEditingActive = false;
+  }
+
+  deleteContact(contact: any) {
+    //TODO persist in backend
+    //this.contactsService.contactDelete(contact);
+    //this.contactsService.getContacts().subscribe((contacts: ContactDto[]) => {
+    //  this.contacts = contacts;
+    //});
+    this.selectedContact = undefined;
+    this.isDetailsActive = false;
+    this.isEditingActive = false;
+  }
+
+  toggleEditing() : void {
+    this.isEditingActive = !this.isEditingActive;
+  }
+
 }

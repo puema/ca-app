@@ -6,8 +6,11 @@
     </div>
     <div class="flex-row full-height">
       <contacts-list [contacts]="contacts" (selectedContact)="onSelectContact($event)"></contacts-list>
-      <contact-details [contact]="selectedContact" [ngClass]="{'hide-details' : !isDetailsActive}"></contact-details>
-      <button md-fab id="addButton" (click)="openContactDialog()">
+      <contact-details [hidden]="isEditingActive" [contact]="selectedContact" (editMode)="toggleEditing()"
+                       [ngClass]="{'hide-details' : !isDetailsActive}"></contact-details>
+      <contact-edit [hidden]="!isEditingActive" [contact]="selectedContact"
+                    (saved)="updateContact($event)" (canceled)="toggleEditing()" (deleted)="deleteContact($event)"></contact-edit>
+      <button md-fab id="addButton" (click)="newContact()" (saved)="addContact($event)">
         <md-icon class="md-24">person_add</md-icon>
       </button>
     </div>

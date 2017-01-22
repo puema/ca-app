@@ -1,7 +1,5 @@
 @import (reference) '../app.component.less';
 
-//@color-grey: #505050;
-
 @blur-pixels: 10px;
 @profile-image-height: 225px;
 @profile-image-width: 300px;
@@ -11,14 +9,8 @@
   display: flex;
 }
 
-.contact-edit {
-  width: 50%;
-  height: auto;
-}
-
-.contact-edit-icon {
-  margin-top: 14px;
-  padding-left: 9px;
+.contact-delete-icon {
+  padding-bottom: 3px;
 }
 
 .contact-edit-section-container {
@@ -30,29 +22,17 @@
   margin-left: 16px;
 }
 
-.contact-edit-address {
-  margin: 8px;
+.contact-edit-title {
+  font-size: 26px;
+  font-weight: bolder;
 }
 
-.contact-edit-address:first-of-type{
-  margin-top: 16px;
+.contact-edit-actions {
+  justify-content: flex-end;
 }
-
-.contact-edit-address:last-of-type{
-  margin-bottom: 16px;
-}
-
 
 .contact-edit {
-  //box-shadow: -4px 0 16px 2px rgba(0, 0, 0, 0.20);
-}
-
-.contact-edit-content {
-  padding: 0 16px 16px 16px;
-}
-
-.mobile-container {
-  display: inline-block;
+  box-shadow: -4px 0 16px 2px rgba(0, 0, 0, 0.20);
 }
 
 .u-blur {
@@ -104,14 +84,6 @@
   width: auto;
 }
 
-.contact-edit-upload-container {
-  width: 100%;
-}
-
-.contact-edit-picture-dummy {
-  font-size: 120px;
-  margin-left: 35%;
-}
 .contact-edit-name {
   position: absolute;
   top: 165px;

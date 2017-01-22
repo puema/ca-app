@@ -26,7 +26,7 @@
     <img class="contact-details-name-underlay" src="./assets/contact-details-name-underlay.svg"/>
     <div class="contact-details-name">
       <h2>{{contact.firstname}} {{contact.lastname}}</h2>
-      <button md-button (click)="openEditDialog()">
+      <button md-button (click)="enableEdit($event)">
         <md-icon class="edit-icon u-grey">edit</md-icon>
       </button>
     </div>
