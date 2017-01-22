@@ -13,6 +13,5 @@ export class AppComponent {
 
   constructor (private mdIconRegistry : MdIconRegistry, private sanitizer : DomSanitizerImpl) {
     mdIconRegistry.addSvgIconSet(this.sanitizer.bypassSecurityTrustResourceUrl(this.iconsFile));
-    // mdIconRegistry.addSvgIconSet(this.iconsFile);
   }
 }
