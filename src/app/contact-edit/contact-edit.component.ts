@@ -2,6 +2,14 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import * as models from '../data/model/models';
 import {getContactColor} from "../utils/color-util";
 
+interface FileReaderEventTarget extends EventTarget {
+  result: string;
+}
+
+interface FileReaderEvent extends Event {
+  target: FileReaderEventTarget
+}
+
 @Component({
   selector: 'contact-edit',
   templateUrl: './contact-edit.component.html',
@@ -25,8 +33,10 @@ export class ContactEditComponent implements OnInit {
   deleted = new EventEmitter<any>();
 
   editObject: any;
+
   dialogTitle: string = 'Add new contact';
   editExisting: boolean = false;
+  draggedOver: boolean = false;
 
   constructor() {
 
@@ -56,6 +66,8 @@ export class ContactEditComponent implements OnInit {
 
   onSaved () {
     this._contact = this.clone(this.editObject);
+    //this._contact.imageUri = undefined; TODO when switching to real API activate this
+
     this.resetEditObject();
     this.saved.emit(this._contact);
   }
@@ -68,6 +80,32 @@ export class ContactEditComponent implements OnInit {
   onDeleted () {
     this.resetEditObject();
     this.deleted.emit(this._contact);
+  }
+
+  toggleDragover(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    this.draggedOver = !this.draggedOver;
+  }
+
+  processPicture(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.draggedOver = false;
+
+    let allowedTypes: string[] = ['image/jpeg', 'image/png', 'image/gif'];
+    let file: File = event.dataTransfer.files[0];
+    let reader: FileReader = new FileReader();
+    let self = this;
+
+    reader.onload = function(event: FileReaderEvent) : any {
+      self.editObject.image = event.target.result;
+      self.editObject.imageUri = event.target.result;
+    };
+
+    if (allowedTypes.indexOf(file.type) !== -1) {
+      reader.readAsDataURL(file);
+    }
   }
 
   unsetAddress(index: number) : void {
@@ -124,15 +162,9 @@ export class ContactEditComponent implements OnInit {
     this.editObject = <models.ContactDto>{
       firstname: '',
       lastname: '',
-      emailAddresses: [''],
-      phoneNumbers: [''],
-      addresses: [<models.AddressDto>{
-        street: '',
-        number: '',
-        city: '',
-        zip: '',
-        country: ''
-      }],
+      emailAddresses: [],
+      phoneNumbers: [],
+      addresses: [],
       birthday: new Date()
     };
   }

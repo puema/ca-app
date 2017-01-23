@@ -1,5 +1,10 @@
 <div class="contact-edit">
   <div class="profile-image-container">
+    <!-- target zone for drag and drop upload of contact pictures -->
+    <div class="profile-image-update-overlay" [ngClass]="{'profile-image-update-overlay-dragover': draggedOver}"
+         (dragenter)="toggleDragover($event)" (dragover)="$event.preventDefault()" (dragleave)="toggleDragover($event)"
+         (drop)="processPicture($event)"></div>
+
     <img *ngIf="editObject.imageUri" class="u-blur" src={{editObject.imageUri}}>
 
     <!--if no image is available-->
@@ -22,7 +27,6 @@
         </p>
       </div>
     </div>
-
     <img class="contact-edit-name-underlay" src="./assets/contact-details-name-underlay.svg"/>
     <div class="contact-edit-name flex-row">
       <p class="contact-edit-title">{{dialogTitle}}</p>
