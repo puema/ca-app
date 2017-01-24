@@ -13,6 +13,8 @@ export class ContactsComponent implements OnInit {
 
   contacts : ContactDto[];
   selectedContact : ContactDto;
+
+  private _isViewActive : boolean = false;
   isDetailsActive : boolean = false;
   isEditingActive : boolean = false;
 
@@ -24,6 +26,16 @@ export class ContactsComponent implements OnInit {
     this.contactsService.getContacts().subscribe((contacts : ContactDto[]) => {
       this.contacts = contacts;
     });
+  }
+
+  get isViewActive(): boolean {
+    return (this.isDetailsActive || this.isEditingActive);
+  }
+
+  set isViewActive(value: boolean) {
+    this._isViewActive = value;
+    this.isEditingActive = false;
+    this.isDetailsActive = false;
   }
 
   onSelectContact (contact : ContactDto) : void {
