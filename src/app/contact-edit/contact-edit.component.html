@@ -27,9 +27,9 @@
       </div>
     </div>
     <img class="contact-edit-name-underlay" src="./assets/contact-details-name-underlay.svg"/>
-    <div class="contact-edit-name flex-row">
+    <div class="contact-edit-name">
       <h2 class="contact-edit-title">{{dialogTitle}}</h2>
-      <button md-icon-button class="contact-delete" *ngIf="editExisting" (click)="onDeleted($event)">
+      <button md-icon-button *ngIf="editExisting" (click)="onDeleted($event)">
         <md-icon class="u-grey">delete_forever</md-icon>
       </button>
     </div>
@@ -89,7 +89,6 @@
           <md-input [(ngModel)]="address.city" name="city{{i}}" placeholder="City"></md-input>
           <md-input [(ngModel)]="address.zip" name="zip{{i}}" placeholder="ZIP"></md-input>
           <md-input [(ngModel)]="address.country.name" name="country{{i}}" placeholder="Country"></md-input>
-          <md-divider *ngIf="!last"></md-divider>
         </div>
       </div>
     </div>

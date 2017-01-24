@@ -13,11 +13,7 @@
   box-shadow: -4px 0 16px 2px rgba(0, 0, 0, 0.20);
   overflow: scroll;
   max-height: 100%;
-}
-
-.contact-delete {
-  margin-top: 13px;
-  margin-left: 20px;
+  max-width: @profile-image-width;
 }
 
 .contact-edit-icon {
@@ -133,8 +129,16 @@
 
 .contact-edit-name {
   position: absolute;
-  top: 165px;
-  left: 16px;
+  bottom: 10px;
+  width: @profile-image-width - 32px;
+  padding: 0 16px 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-edit-name h2 {
+  margin: 0;
 }
 
 .contact-edit-name-underlay {

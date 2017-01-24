@@ -132,7 +132,9 @@ export class ContactEditComponent implements OnInit {
       number: '',
       city: '',
       zip: '',
+      region: 'there',
       country: {
+        isoCode: 'ALB',
         name: ''
       }
     });
