@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, RequestOptions, XHRBackend, Http } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { ContactsComponent } from './contacts/contacts.component';
@@ -18,8 +18,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpInterceptorModule } from 'angular2-http-interceptor';
 import { TokenInterceptor } from './data/token-interceptor/token-interceptor';
 import { TokenResource } from './data/token-interceptor/token-resource';
+import { HttpInterceptor } from './data/token-interceptor/http-interceptor';
 
-const routes: Routes = [];
+const routes : Routes = [];
+
+export function httpInterceptorFactory (xhrBackend : XHRBackend, requestOptions : RequestOptions) : Http {
+  return new HttpInterceptor(xhrBackend, requestOptions);
+}
 
 @NgModule({
   declarations: [
@@ -41,13 +46,18 @@ const routes: Routes = [];
     HttpModule,
     RouterModule.forRoot(routes),
     MaterialModule.forRoot(),
-    HttpInterceptorModule.withInterceptors([TokenInterceptor])
+    // HttpInterceptorModule.withInterceptors([TokenInterceptor])
   ],
   providers: [
     ApiInstantiator,
     DomSanitizerImpl,
     LoginService,
-    TokenResource
+    TokenResource,
+    {
+      provide: Http,
+      useFactory: httpInterceptorFactory,
+      deps: [XHRBackend, RequestOptions]
+    }
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
