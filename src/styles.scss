@@ -10,7 +10,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
 $contacts-app-primary: md-palette($md-teal);
-$contacts-app-accent: md-palette($md-pink, A200, A100, A400);
+$contacts-app-accent: md-palette($md-teal);
 
 // The warn palette is optional (defaults to red).
 $contacts-app-warn: md-palette($md-red);
