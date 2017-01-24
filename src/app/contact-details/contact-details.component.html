@@ -62,10 +62,10 @@
     </div>
     <md-divider *ngIf="contact.addresses && contact.addresses.length"></md-divider>
 
-    <div *ngIf="contact.birthday" class="flex-row">
+    <div *ngIf="contactBirthday" class="flex-row">
       <md-icon class="contact-details-icon u-grey">cake</md-icon>
       <div class="contact-details-content-section">
-        <p>{{contact.birthday | date: 'yyyy/MM/dd'}}</p>
+        <p>{{contactBirthday | date: 'yyyy/MM/dd'}}</p>
       </div>
     </div>
     <md-divider *ngIf="contact.birthday"></md-divider>

@@ -1,6 +1,8 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import * as models from '../data/model/models';
 import {getContactColor, hashCode} from "../utils/color-util";
+import { ContactDto } from '../data/model/ContactDto';
+import { AddressDto } from '../data/model/AddressDto';
 
 interface FileReaderEventTarget extends EventTarget {
   result: string;
@@ -10,6 +12,15 @@ interface FileReaderEvent extends Event {
   target: FileReaderEventTarget
 }
 
+const INITIAL_CONTACT : ContactDto = {
+  firstname: '',
+  lastname: '',
+  emailAddresses: [],
+  phoneNumbers: [],
+  addresses: [],
+  birthday: undefined
+};
+
 @Component({
   selector: 'contact-edit',
   templateUrl: './contact-edit.component.html',
@@ -18,21 +29,21 @@ interface FileReaderEvent extends Event {
 export class ContactEditComponent implements OnInit {
 
   @Input()
-  _contact: any; // Todo set ContactsDto as soon as phoneNumbers are available
+  contact : ContactDto;
 
   @Output()
-  saved = new EventEmitter<any>();
+  saved = new EventEmitter<ContactDto>();
 
   @Output()
   canceled = new EventEmitter();
 
   @Output()
-  added = new EventEmitter<any>();
+  added = new EventEmitter<ContactDto>();
 
   @Output()
-  deleted = new EventEmitter<any>();
+  deleted = new EventEmitter<ContactDto>();
 
-  editObject: any;
+  editObject: ContactDto;
 
   dialogTitle: string = 'Add new contact';
   editExisting: boolean = false;
@@ -43,32 +54,18 @@ export class ContactEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.resetEditObject();
-  }
-
-  get contact(): any {
-    return this._contact;
-  }
-
-  @Input()
-  set contact(value: any) {
-    if (typeof(value) !== 'undefined') {
-      this._contact = value;
-      this.editObject = this.clone(this._contact);
-      this.editExisting = true;
-      this.dialogTitle = 'Edit contact';
-    } else {
-      this.resetEditObject();
-      this.editExisting = false;
-      this.dialogTitle = 'Add new contact';
-    }
+      if (this.contact) {
+        this.editObject = this.clone(this.contact);
+        this.editExisting = true;
+        this.dialogTitle = 'Edit contact';
+      } else {
+        this.resetEditObject();
+        this.editExisting = false;
+        this.dialogTitle = 'Add new contact';
+      }
   }
 
   onSaved () {
-    if (typeof(this.editObject.birthday) !== 'undefined' && this.editObject.birthday === 24) { // aka 'empty' date
-      delete this.editObject.birthday;
-    }
-
     let b64Prefix : string = 'data:image/jpeg;base64,';
     if (typeof(this.editObject.image) !== 'undefined' && this.editObject.image.indexOf(b64Prefix) !== -1) {
       this.editObject.image = this.editObject.image.substring(b64Prefix.length);
@@ -76,24 +73,24 @@ export class ContactEditComponent implements OnInit {
 
     delete this.editObject.imageUri;
 
-    this._contact = this.clone(this.editObject);
+    this.contact = this.clone(this.editObject);
     this.resetEditObject();
 
     if (this.editExisting === true) {
-      this.saved.emit(this._contact);
+      this.saved.emit(this.contact);
     } else {
-      this.added.emit(this._contact);
+      this.added.emit(this.contact);
     }
   }
 
   onCanceled () {
-    this.editObject = this.clone(this._contact);
+    this.editObject = this.clone(this.contact);
     this.canceled.emit();
   }
 
   onDeleted () {
     this.resetEditObject();
-    this.deleted.emit(this._contact);
+    this.deleted.emit(this.contact);
   }
 
   toggleDragover(event) {
@@ -127,15 +124,15 @@ export class ContactEditComponent implements OnInit {
   }
 
   addAddress() : void {
-    if (typeof(this.editObject.addresses) === 'undefined') {
+    if (!this.editObject.addresses) {
       this.editObject.addresses = [];
     }
-    this.editObject.addresses.push(<models.AddressDto>{
+    this.editObject.addresses.push({
       street: '',
       number: '',
       city: '',
       zip: '',
-      country: <models.CountryDto>{
+      country: {
         name: ''
       }
     });
@@ -146,10 +143,14 @@ export class ContactEditComponent implements OnInit {
   }
 
   addMail() : void {
-    if (typeof(this.editObject.emailAddresses) === 'undefined') {
-      this.editObject.emailAdddresses = [];
+    if (!this.editObject.emailAddresses) {
+      this.editObject.emailAddresses = [];
     }
     this.editObject.emailAddresses.push('');
+  }
+
+  onMailChange(mail : string, i : number) : void {
+    this.editObject.emailAddresses[i] = mail;
   }
 
   unsetPhone(index: number) : void {
@@ -157,7 +158,7 @@ export class ContactEditComponent implements OnInit {
   }
 
   addPhone() : void {
-    if (typeof(this.editObject.phoneNumbers) === 'undefined') {
+    if (!this.editObject.phoneNumbers) {
       this.editObject.phoneNumbers = [];
     }
     this.editObject.phoneNumbers.push(<models.PhoneNumberDto>{
@@ -177,14 +178,7 @@ export class ContactEditComponent implements OnInit {
   }
 
   private resetEditObject() : void {
-    this.editObject = {
-      firstname: '',
-      lastname: '',
-      emailAddresses: [],
-      phoneNumbers: [],
-      addresses: [],
-      birthday: new Date().getDate()
-    };
+    this.editObject = INITIAL_CONTACT;
   }
 
   private getColor (contact : models.ContactDto) : string {

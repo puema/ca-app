@@ -106,7 +106,7 @@
       <div class="flex-column" *ngIf="editObject.emailAddresses && editObject.emailAddresses.length">
         <div class="contact-edit-content-section" *ngFor="let mail of editObject.emailAddresses; let i = index">
           <div class="flex-row">
-            <md-input type="email" [(ngModel)]="editObject.emailAddresses[i]" name="mail{{i}}"
+            <md-input type="email" [ngModel]="mail" (ngModel)="onMailChange($event, i)" name="mail{{i}}"
                       placeholder="Mail"></md-input>
             <button md-icon-button (click)="unsetMail(i)">
               <md-icon class="md-12 u-grey">delete</md-icon>
