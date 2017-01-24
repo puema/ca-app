@@ -7,7 +7,7 @@ export class LoginService {
   private _isUserLoggedIn : boolean = false;
   private token : string;
 
-  static readonly LOGIN_URL : string = 'https://torpedomaximumapi.azurewebsites.net/account/signin';
+  static readonly LOGIN_URL : string = 'https://torpedomaximumauth.azurewebsites.net/account/signin';
 
   constructor (private route : ActivatedRoute, private tokenResource : TokenResource) {
 

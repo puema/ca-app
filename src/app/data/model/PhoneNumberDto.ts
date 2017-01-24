@@ -25,36 +25,12 @@
 'use strict';
 import * as models from './models';
 
-export interface ContactDto {
+export interface PhoneNumberDto {
     
 
     id?: string;
 
-    userId?: string;
-
     created?: Date;
 
-    firstname?: string;
-
-    lastname?: string;
-
-    title?: string;
-
-    academicDegree?: string;
-
-    suffix?: string;
-
-    gender?: string;
-
-    birthday?: Date;
-
-    image?: string;
-
-    imageUri?: string;
-
-    addresses?: Array<models.AddressDto>;
-
-    emailAddresses?: Array<string>;
-
-    phoneNumbers?: Array<models.PhoneNumberDto>;
+    number?: string;
 }

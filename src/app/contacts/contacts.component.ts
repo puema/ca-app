@@ -18,7 +18,7 @@ export class ContactsComponent implements OnInit {
   isDetailsActive : boolean = false;
   isEditingActive : boolean = false;
 
-  constructor(private contactsService : ContactsService) {
+  constructor (private contactsService : ContactsService) {
 
   }
 
@@ -44,13 +44,13 @@ export class ContactsComponent implements OnInit {
     this.isEditingActive = false;
   }
 
-  newContact() : void {
+  newContact () : void {
     this.selectedContact = undefined;
     this.isEditingActive = true;
     this.isDetailsActive = false;
   }
 
-  addContact(contact: any) {
+  addContact (contact : any) {
     //TODO persist in backend
 
     console.log(contact);
@@ -61,7 +61,7 @@ export class ContactsComponent implements OnInit {
     this.isDetailsActive = true;
   }
 
-  updateContact(contact: any) {
+  updateContact (contact : any) {
     //TODO persist in backend
     //this.contactsService.update(contact);
     let contactIdx : number = 0;
@@ -76,7 +76,7 @@ export class ContactsComponent implements OnInit {
     this.isEditingActive = false;
   }
 
-  deleteContact(contact: any) {
+  deleteContact (contact : any) {
     //TODO persist in backend
     //this.contactsService.contactDelete(contact);
     //this.contactsService.getContacts().subscribe((contacts: ContactDto[]) => {
@@ -97,7 +97,7 @@ export class ContactsComponent implements OnInit {
     this.isEditingActive = false;
   }
 
-  toggleEditing() : void {
+  toggleEditing () : void {
     this.isEditingActive = !this.isEditingActive;
   }
 

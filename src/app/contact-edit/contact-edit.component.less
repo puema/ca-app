@@ -1,12 +1,16 @@
 @import (reference) '../app.component.less';
 
-@blur-pixels: 8px;
+@blur-pixels: 10px;
 @profile-image-height: 225px;
 @profile-image-width: 300px;
 @color-grey: #505050;
 
 .contact-edit .flex-row {
   display: flex;
+}
+
+.contact-edit {
+  box-shadow: -4px 0 16px 2px rgba(0, 0, 0, 0.20);
 }
 
 .contact-delete {
@@ -16,6 +20,11 @@
 
 .contact-edit-icon {
   margin-left: 8px;
+}
+
+.contact-edit-content {
+  overflow: scroll;
+  max-height: calc(~'100% - 300px');
 }
 
 .contact-edit-section-container {
@@ -34,10 +43,6 @@
 .contact-edit-actions {
   justify-content: flex-end;
   padding-bottom: 15px;
-}
-
-.contact-edit {
-  box-shadow: -4px 0 16px 2px rgba(0, 0, 0, 0.20);
 }
 
 .mobile-container {
@@ -110,7 +115,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: @color-grey;
 }
 
 .dummy-image-initials {

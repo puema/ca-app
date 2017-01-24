@@ -172,136 +172,157 @@
   "definitions": {
     "ContactDto": {
       "required": [
-        "UserId",
-        "Created",
-        "Firstname",
-        "Lastname",
-        "Gender"
+        "userId",
+        "created",
+        "firstname",
+        "lastname",
+        "gender"
       ],
       "type": "object",
       "properties": {
-        "Id": {
+        "id": {
           "format": "uuid",
           "type": "string"
         },
-        "UserId": {
+        "userId": {
           "format": "uuid",
           "type": "string"
         },
-        "Created": {
+        "created": {
           "format": "date-time",
           "type": "string"
         },
-        "Firstname": {
+        "firstname": {
           "type": "string"
         },
-        "Lastname": {
+        "lastname": {
           "type": "string"
         },
-        "Title": {
+        "title": {
           "type": "string"
         },
-        "AcademicDegree": {
+        "academicDegree": {
           "type": "string"
         },
-        "Suffix": {
+        "suffix": {
           "type": "string"
         },
-        "Gender": {
-          "format": "int32",
-          "enum": [
-            0,
-            1
-          ],
-          "type": "integer"
+        "gender": {
+          "type": "string"
         },
-        "Birthday": {
+        "birthday": {
           "format": "date-time",
           "type": "string"
         },
-        "Image": {
+        "image": {
           "type": "string"
         },
-        "ImageUri": {
+        "imageUri": {
           "type": "string"
         },
-        "Addresses": {
+        "addresses": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/AddressDto"
           }
         },
-        "EmailAddresses": {
+        "emailAddresses": {
           "type": "array",
           "items": {
             "type": "string"
+          }
+        },
+        "phoneNumbers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PhoneNumberDto"
           }
         }
       }
     },
     "AddressDto": {
       "required": [
-        "Created",
-        "Street",
-        "Number",
-        "Zip",
-        "City",
-        "Region",
-        "Country"
+        "created",
+        "street",
+        "number",
+        "zip",
+        "city",
+        "region",
+        "country"
       ],
       "type": "object",
       "properties": {
-        "Id": {
+        "id": {
           "format": "uuid",
           "type": "string"
         },
-        "Created": {
+        "created": {
           "format": "date-time",
           "type": "string"
         },
-        "Street": {
+        "street": {
           "type": "string"
         },
-        "Number": {
+        "number": {
           "type": "string"
         },
-        "Addition": {
+        "addition": {
           "type": "string"
         },
-        "Zip": {
+        "zip": {
           "type": "string"
         },
-        "City": {
+        "city": {
           "type": "string"
         },
-        "Region": {
+        "region": {
           "type": "string"
         },
-        "Country": {
+        "country": {
           "$ref": "#/definitions/CountryDto"
+        }
+      }
+    },
+    "PhoneNumberDto": {
+      "required": [
+        "created",
+        "number"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
         }
       }
     },
     "CountryDto": {
       "required": [
-        "Created",
-        "IsoCode",
-        "Name"
+        "created",
+        "isoCode",
+        "name"
       ],
       "type": "object",
       "properties": {
-        "Id": {
+        "id": {
           "format": "uuid",
           "type": "string"
         },
-        "Created": {
+        "created": {
           "format": "date-time",
           "type": "string"
         },
-        "IsoCode": {
+        "isoCode": {
           "type": "string"
         },
-        "Name": {
+        "name": {
           "type": "string"
         }
       }

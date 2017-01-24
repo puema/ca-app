@@ -72,11 +72,12 @@
       <div class="flex-column">
         <md-icon class="contact-edit-icon u-grey">business</md-icon>
         <button md-icon-button (click)="addAddress()">
-          <md-icon class="md-12 u-grey" >add</md-icon>
+          <md-icon class="md-12 u-grey">add</md-icon>
         </button>
       </div>
       <div class="flex-column" *ngIf="editObject.addresses && editObject.addresses.length">
-        <div class="contact-edit-content-section" *ngFor="let address of editObject.addresses; let i = index; let l = last">
+        <div class="contact-edit-content-section"
+             *ngFor="let address of editObject.addresses; let i = index; let l = last">
           <div class="flex-row">
             <md-input [(ngModel)]="address.street" placeholder="Street"></md-input>
 
@@ -105,7 +106,8 @@
       <div class="flex-column" *ngIf="editObject.emailAddresses && editObject.emailAddresses.length">
         <div class="contact-edit-content-section" *ngFor="let mail of editObject.emailAddresses; let i = index">
           <div class="flex-row">
-            <md-input type="email" [(ngModel)]="editObject.emailAddresses[i]" name="mail{{i}}" placeholder="Mail"></md-input>
+            <md-input type="email" [(ngModel)]="editObject.emailAddresses[i]" name="mail{{i}}"
+                      placeholder="Mail"></md-input>
             <button md-icon-button (click)="unsetMail(i)">
               <md-icon class="md-12 u-grey">delete</md-icon>
             </button>
@@ -123,10 +125,10 @@
       </div>
     </div>
 
-  </div>
+    <div class="contact-edit-actions flex-row">
+      <button md-button (click)="onCanceled()">Abort</button>
+      <button md-button (click)="onSaved()">Save</button>
+    </div>
 
-  <div class="contact-edit-actions flex-row">
-    <button md-button (click)="onCanceled()">Abort</button>
-    <button md-button (click)="onSaved()">Save</button>
   </div>
 </div>
