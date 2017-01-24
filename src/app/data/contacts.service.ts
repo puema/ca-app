@@ -15,14 +15,14 @@ export class ContactsService {
   }
 
   public getContacts () : Observable<ContactDto[]> {
-    return this.endpoint.contactsGetAll();
+    // return this.endpoint.contactsGetAll();
 
-    // return Observable.create(observer => {
-    //   // Yield a single value and complete
-    //   observer.next(require('../../../contactMock.json'));
-    //   observer.complete();
-    //
-    // });
+    return Observable.create(observer => {
+      // Yield a single value and complete
+      observer.next(require('../../../contactMock.json'));
+      observer.complete();
+
+    });
   }
 
 }
