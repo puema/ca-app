@@ -8,8 +8,7 @@
     <img *ngIf="editObject.imageUri" class="u-blur" src={{editObject.imageUri}}>
 
     <!--if no image is available-->
-    <div *ngIf="!editObject.imageUri" class="dummy-image u-blur"
-         [style.background-color]="getColor(editObject)">
+    <div *ngIf="!editObject.imageUri" class="dummy-image u-blur">
       <p class="blurred-dummy-image-initials thin">
         {{editObject.firstname.charAt(0).toUpperCase()}}{{editObject.lastname.charAt(0).toUpperCase()}}
       </p>
@@ -20,10 +19,10 @@
       <img *ngIf="editObject.imageUri" class="cropped-image" src={{editObject.imageUri}}/>
 
       <!--if no image is available-->
-      <div *ngIf="!editObject.imageUri" class="dummy-image"
-           [style.background-color]="getColor(editObject)">
+      <div *ngIf="!editObject.imageUri" class="dummy-image">
         <p class="dummy-image-initials thin">
-          {{editObject.firstname.charAt(0).toUpperCase()}}{{editObject.lastname.charAt(0).toUpperCase()}}
+          Drag picture
+          here
         </p>
       </div>
     </div>
