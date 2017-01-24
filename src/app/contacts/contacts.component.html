@@ -9,8 +9,9 @@
       <contact-details [hidden]="isEditingActive" [contact]="selectedContact" (editMode)="toggleEditing()"
                        [ngClass]="{'hide-details' : !isDetailsActive}"></contact-details>
       <contact-edit [hidden]="!isEditingActive" [contact]="selectedContact"
-                    (saved)="updateContact($event)" (canceled)="toggleEditing()" (deleted)="deleteContact($event)"></contact-edit>
-      <button md-fab class="add-contacts-button" [hidden]="isEditingActive" (click)="newContact()" (saved)="addContact($event)">
+                    (saved)="updateContact($event)" (canceled)="toggleEditing()"
+                    (added)="addContact($event)" (deleted)="deleteContact($event)"></contact-edit>
+      <button md-fab class="add-contacts-button" [hidden]="isEditingActive" (click)="newContact()">
         <md-icon class="md-24">person_add</md-icon>
       </button>
     </div>

@@ -27,6 +27,9 @@ export class ContactEditComponent implements OnInit {
   canceled = new EventEmitter();
 
   @Output()
+  added = new EventEmitter<any>();
+
+  @Output()
   deleted = new EventEmitter<any>();
 
   editObject: any;
@@ -63,10 +66,13 @@ export class ContactEditComponent implements OnInit {
 
   onSaved () {
     this._contact = this.clone(this.editObject);
-    //this._contact.imageUri = undefined; TODO when switching to real API activate this
-
     this.resetEditObject();
-    this.saved.emit(this._contact);
+
+    if (this.editExisting === true) {
+      this.saved.emit(this._contact);
+    } else {
+      this.added.emit(this._contact);
+    }
   }
 
   onCanceled () {
