@@ -1,8 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { ContactsService } from "../data/contacts.service";
+import { Component, OnInit } from '@angular/core';
+import { ContactsService } from '../data/contacts.service';
 import { ContactDto } from '../data/model/ContactDto';
-import { MdDialog, MdDialogRef } from '@angular/material';
-import { ContactEditComponent } from '../contact-edit/contact-edit.component';
 
 
 @Component({
@@ -42,6 +40,8 @@ export class ContactsComponent implements OnInit {
 
   addContact(contact: any) {
     //TODO persist in backend
+
+    console.log(contact);
     //this.contactsService.addContact(contact);
     this.selectedContact = contact;
     this.contacts.push(contact);
