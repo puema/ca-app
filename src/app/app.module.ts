@@ -16,9 +16,9 @@ import { DomSanitizerImpl } from '@angular/platform-browser/src/security/dom_san
 import { LoginService } from './login.service';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpInterceptorModule } from 'angular2-http-interceptor';
-import { TokenInterceptor } from './data/token-interceptor/token-interceptor';
-import { TokenResource } from './data/token-interceptor/token-resource';
-import { HttpInterceptor } from './data/token-interceptor/http-interceptor';
+import { TokenInterceptor } from './data/token/token-interceptor';
+import { TokenResource } from './data/token/token-resource';
+import { HttpInterceptor } from './data/token/http-interceptor';
 
 const routes : Routes = [];
 

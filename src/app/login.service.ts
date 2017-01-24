@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { TokenResource } from './data/token-interceptor/token-resource';
+import { TokenResource } from './data/token/token-resource';
 
 @Injectable()
 export class LoginService {
