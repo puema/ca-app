@@ -34,11 +34,12 @@
       "marcel.p.puetz@gmail.com",
       "marcelpuetz@web.de",
       "marcel.puetz@qaware.de"
-    ]
+    ],
+    "imageUri": "./assets/marcel-puetz.jpg"
   },
   {
     "firstname": "Marko",
-    "lastname": "Grigc",
+    "lastname": "Grgic",
     "addresses": [
       {
         "city": "Rosenheim",
@@ -48,7 +49,8 @@
         "city": "Traunreut",
         "region": "New York"
       }
-    ]
+    ],
+    "imageUri": "./assets/marko-grgic.jpg"
   },
   {
     "firstname": "Andreas",
@@ -56,11 +58,13 @@
   },
   {
     "firstname": "Tobias",
-    "lastname": "Jonas"
+    "lastname": "Jonas",
+    "imageUri": "./assets/tobias-jonas.jpg"
   },
   {
-    "firstname": "Micheal",
-    "lastname": "Weinberger"
+    "firstname": "Michael",
+    "lastname": "Weinberger",
+    "imageUri": "./assets/michael-weinberger.jpg"
   },
   {
     "firstname": "Hans",
