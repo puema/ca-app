@@ -169,7 +169,7 @@ export class ContactEditComponent implements OnInit {
       emailAddresses: [],
       phoneNumbers: [],
       addresses: [],
-      birthday: new Date()
+      birthday: new Date('2012-12-24')
     };
   }
 
