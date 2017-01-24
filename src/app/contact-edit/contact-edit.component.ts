@@ -1,6 +1,6 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import * as models from '../data/model/models';
-import {getContactColor} from "../utils/color-util";
+import {getContactColor, hashCode} from "../utils/color-util";
 
 interface FileReaderEventTarget extends EventTarget {
   result: string;
@@ -71,6 +71,7 @@ export class ContactEditComponent implements OnInit {
     if (this.editExisting === true) {
       this.saved.emit(this._contact);
     } else {
+      this._contact.id = hashCode(this._contact.firstname + this._contact.lastname + new Date().toString());
       this.added.emit(this._contact);
     }
   }

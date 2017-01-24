@@ -52,6 +52,14 @@ export class ContactsComponent implements OnInit {
   updateContact(contact: any) {
     //TODO persist in backend
     //this.contactsService.update(contact);
+    let contactIdx : number = 0;
+    this.contacts.filter((element, index) => {
+      if (element.id === contact.id) {
+        contactIdx = index;
+      }
+    });
+
+    this.contacts[contactIdx] = contact;
     this.selectedContact = contact;
     this.isEditingActive = false;
   }
@@ -62,6 +70,16 @@ export class ContactsComponent implements OnInit {
     //this.contactsService.getContacts().subscribe((contacts: ContactDto[]) => {
     //  this.contacts = contacts;
     //});
+
+    let contactIdx : number = 0;
+    this.contacts.filter((element, index) => {
+      if (element.id === contact.id) {
+        contactIdx = index;
+      }
+    });
+
+    this.contacts.splice(contactIdx, 1);
+
     this.selectedContact = undefined;
     this.isDetailsActive = false;
     this.isEditingActive = false;
