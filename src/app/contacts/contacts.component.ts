@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../data/contacts.service';
 import { ContactDto } from '../data/model/ContactDto';
+import { LoginService } from '../login.service';
 
 
 @Component({
@@ -11,6 +12,8 @@ import { ContactDto } from '../data/model/ContactDto';
 })
 export class ContactsComponent implements OnInit {
 
+  authenticated : boolean = false;
+
   contacts : ContactDto[];
   selectedContact : ContactDto;
 
@@ -18,14 +21,19 @@ export class ContactsComponent implements OnInit {
   isDetailsActive : boolean = false;
   isEditingActive : boolean = false;
 
-  constructor (private contactsService : ContactsService) {
+  constructor (private contactsService : ContactsService,
+               private loginService : LoginService) {
 
   }
 
   ngOnInit () {
-    this.contactsService.getContacts().subscribe((contacts : ContactDto[]) => {
-      this.contacts = contacts;
-    });
+    this.authenticated = this.loginService.isUserLoggedIn();
+
+    if (this.authenticated) {
+      this.contactsService.getContacts().subscribe((contacts : ContactDto[]) => {
+        this.contacts = contacts;
+      });
+    }
   }
 
   get isViewActive(): boolean {

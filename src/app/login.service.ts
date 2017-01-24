@@ -16,13 +16,21 @@ export class LoginService {
       if (token) {
         this.tokenResource.updateToken(params['token']);
         this.tokenResource.persistToken();
+        this._isUserLoggedIn = true;
+        window.location.href = window.location.origin;
       }
     });
 
   }
 
   isUserLoggedIn () : boolean {
+    this._isUserLoggedIn = !!this.tokenResource.getToken();
     return this._isUserLoggedIn;
+  }
+
+  logout () {
+    this.tokenResource.resetToken();
+      window.location.href = window.location.origin;
   }
 
 }

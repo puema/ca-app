@@ -5,9 +5,9 @@
         <md-icon >arrow_back</md-icon>
       </button>
       <span class="tablet-and-greater flex-grow-2">Torpedo Maximum Contacts</span>
-      <div class="flex-row vertical-center font-l">
+      <div class="flex-row vertical-center font-l" *ngIf="isUserLoggedIn">
         <md-icon class="header-icon" svgIcon="account"></md-icon>
-        <span class="thin user-name">Max Mustermann</span>
+        <span class="thin user-name">Leeerooooy Jenkins</span>
       </div>
       <!-- User is logged out -->
       <button *ngIf="!isUserLoggedIn" (click)="onLogin()" md-button class="flex-row vertical-center">
@@ -15,10 +15,10 @@
         <span class="thin">Login</span>
       </button>
       <!-- User is logged in -->
-      <div (click)="onLogin()" *ngIf="isUserLoggedIn" class="flex-row vertical-center font-l">
+      <button (click)="onLogout()" *ngIf="isUserLoggedIn" md-button class="flex-row vertical-center font-l">
         <md-icon class="header-icon" svgIcon="logout"></md-icon>
         <span class="thin">Logout</span>
-      </div>
+      </button>
     </div>
   </md-toolbar>
 </div>

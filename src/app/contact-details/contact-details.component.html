@@ -37,7 +37,7 @@
     <div *ngIf="contact.phoneNumbers && contact.phoneNumbers.length" class="flex-row">
       <md-icon class="contact-details-icon u-grey">phone</md-icon>
       <div class="contact-details-content-section">
-        <p *ngFor='let number of contact.phoneNumbers'>{{number}}</p>
+        <p *ngFor='let number of contact.phoneNumbers'>{{number.number}}</p>
       </div>
     </div>
     <md-divider *ngIf="contact.phoneNumbers && contact.phoneNumbers.length"></md-divider>

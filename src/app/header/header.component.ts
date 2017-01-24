@@ -12,8 +12,8 @@ export class HeaderComponent implements OnInit {
   isBackVisible;
   @Output()
   isBackVisibleChange : EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  private isUserLoggedIn;
+  @Input()
+  isUserLoggedIn;
 
   constructor(private loginService : LoginService) {
   }
@@ -32,4 +32,7 @@ export class HeaderComponent implements OnInit {
     window.location.href = LoginService.LOGIN_URL;
   }
 
+  private onLogout () : void {
+    this.loginService.logout();
+  }
 }

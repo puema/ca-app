@@ -4,7 +4,7 @@
     <div class="header-container">
       <header [(isBackVisible)]="isViewActive"></header>
     </div>
-    <div class="flex-row full-height">
+    <div class="flex-row full-height" *ngIf="authenticated">
       <contacts-list [contacts]="contacts" (selectedContact)="onSelectContact($event)"></contacts-list>
       <contact-details [hidden]="isEditingActive" [contact]="selectedContact" (editMode)="toggleEditing()"
                        [ngClass]="{'hide-details' : !isDetailsActive}"></contact-details>
