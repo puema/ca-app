@@ -19,6 +19,7 @@ export class HttpInterceptor extends Http {
         options = {headers: new Headers()};
       }
       options.headers.set('Authorization', `Bearer ${this.tokenResource.getToken()}`);
+      options.headers.set('content-type', 'application/json');
     } else {
       // we have to add the token to the url object
       url.headers.set('Authorization', `Bearer ${this.tokenResource.getToken()}`);

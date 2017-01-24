@@ -54,10 +54,10 @@
         </button>
       </div>
       <div class="flex-column" *ngIf="editObject.phoneNumbers && editObject.phoneNumbers.length">
-        <div class="contact-edit-content-section" *ngFor="let number of editObject.phoneNumbers; let i = index">
+        <div class="contact-edit-content-section" *ngFor="let phone of editObject.phoneNumbers; let i = index">
           <div class="flex-row">
             <!-- TODO find solution for primitive value problem -->
-            <md-input type="tel" [(ngModel)]="editObject.phoneNumbers[i]" placeholder="Phone"></md-input>
+            <md-input type="tel" [(ngModel)]="phone.number" placeholder="Phone"></md-input>
             <button md-icon-button (click)="unsetPhone(i)">
               <md-icon class="md-12 u-grey">delete</md-icon>
             </button>
@@ -88,7 +88,7 @@
           <md-input [(ngModel)]="address.number" placeholder="Number"></md-input>
           <md-input [(ngModel)]="address.city" name="city{{i}}" placeholder="City"></md-input>
           <md-input [(ngModel)]="address.zip" name="zip{{i}}" placeholder="ZIP"></md-input>
-          <md-input [(ngModel)]="address.country" name="country{{i}}" placeholder="Country"></md-input>
+          <md-input [(ngModel)]="address.country.name" name="country{{i}}" placeholder="Country"></md-input>
           <md-divider *ngIf="!last"></md-divider>
         </div>
       </div>

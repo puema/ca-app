@@ -8,7 +8,6 @@ import { ContactsApi } from './api/ContactsApi';
 @Inject(ApiInstantiator)
 export class ContactsService {
   private endpoint : ContactsApi;
-  // private endpoint : MockApi;
 
   constructor (private apiInst : ApiInstantiator) {
     this.endpoint = apiInst.initContactsApi();
@@ -25,4 +24,15 @@ export class ContactsService {
     });
   }
 
+  public addContact(contact: ContactDto) : Observable<ContactDto> {
+    return this.endpoint.contactsAdd(contact);
+  }
+
+  public updateContact(contact: ContactDto) : Observable<ContactDto> {
+    return this.endpoint.contactsUpdate(contact);
+  }
+
+  public deleteContact(contact: ContactDto) : Observable<ContactDto> {
+    return this.endpoint.contactsDelete(contact.id);
+  }
 }

@@ -51,37 +51,51 @@ export class ContactsComponent implements OnInit {
   }
 
   addContact (contact : any) {
-    //TODO persist in backend
+    this.contactsService.addContact(contact)
+      .subscribe((addedContact) => {
+        this.contacts.push(addedContact);
+        this.selectedContact = addedContact;
+        this.isEditingActive = false;
+        this.isDetailsActive = true;
+      });
 
-    console.log(contact);
-    //this.contactsService.addContact(contact);
-    this.selectedContact = contact;
-    this.contacts.push(contact);
-    this.isEditingActive = false;
-    this.isDetailsActive = true;
   }
 
   updateContact (contact : any) {
     //TODO persist in backend
-    //this.contactsService.update(contact);
-    let contactIdx : number = 0;
-    this.contacts.filter((element, index) => {
-      if (element.id === contact.id) {
-        contactIdx = index;
-      }
-    });
+    this.contactsService.updateContact(contact)
+      .subscribe((updatedContact) => {
+        let contactIdx : number = 0;
+        this.contacts.filter((element, index) => {
+          if (element.id === contact.id) {
+            contactIdx = index;
+          }
+        });
 
-    this.contacts[contactIdx] = contact;
-    this.selectedContact = contact;
-    this.isEditingActive = false;
+        this.contacts[contactIdx] = updatedContact;
+        this.selectedContact = updatedContact;
+        this.isEditingActive = false;
+      });
+
   }
 
   deleteContact (contact : any) {
     //TODO persist in backend
-    //this.contactsService.contactDelete(contact);
-    //this.contactsService.getContacts().subscribe((contacts: ContactDto[]) => {
-    //  this.contacts = contacts;
-    //});
+    /*this.contactsService.deleteContact(contact)
+      .subscribe((deletedContact) => {
+        let contactIdx : number = 0;
+        this.contacts.filter((element, index) => {
+          if (element.id === deletedContact.id) {
+            contactIdx = index;
+          }
+        });
+
+        this.contacts.splice(contactIdx, 1);
+
+        this.selectedContact = undefined;
+        this.isDetailsActive = false;
+        this.isEditingActive = false;
+      });*/
 
     let contactIdx : number = 0;
     this.contacts.filter((element, index) => {

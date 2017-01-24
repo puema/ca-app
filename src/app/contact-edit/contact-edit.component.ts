@@ -65,13 +65,23 @@ export class ContactEditComponent implements OnInit {
   }
 
   onSaved () {
+    if (typeof(this.editObject.birthday) !== 'undefined' && this.editObject.birthday === 24) { // aka 'empty' date
+      delete this.editObject.birthday;
+    }
+
+    let b64Prefix : string = 'data:image/jpeg;base64,';
+    if (typeof(this.editObject.image) !== 'undefined' && this.editObject.image.indexOf(b64Prefix) !== -1) {
+      this.editObject.image = this.editObject.image.substring(b64Prefix.length);
+    }
+
+    delete this.editObject.imageUri;
+
     this._contact = this.clone(this.editObject);
     this.resetEditObject();
 
     if (this.editExisting === true) {
       this.saved.emit(this._contact);
     } else {
-      this._contact.id = hashCode(this._contact.firstname + this._contact.lastname + new Date().toString());
       this.added.emit(this._contact);
     }
   }
@@ -125,7 +135,9 @@ export class ContactEditComponent implements OnInit {
       number: '',
       city: '',
       zip: '',
-      country: ''
+      country: <models.CountryDto>{
+        name: ''
+      }
     });
   }
 
@@ -148,7 +160,9 @@ export class ContactEditComponent implements OnInit {
     if (typeof(this.editObject.phoneNumbers) === 'undefined') {
       this.editObject.phoneNumbers = [];
     }
-    this.editObject.phoneNumbers.push('');
+    this.editObject.phoneNumbers.push(<models.PhoneNumberDto>{
+      number: ''
+    });
   }
 
   private clone(item: any) : any {
@@ -163,13 +177,13 @@ export class ContactEditComponent implements OnInit {
   }
 
   private resetEditObject() : void {
-    this.editObject = <models.ContactDto>{
+    this.editObject = {
       firstname: '',
       lastname: '',
       emailAddresses: [],
       phoneNumbers: [],
       addresses: [],
-      birthday: new Date('2012-12-24')
+      birthday: new Date().getDate()
     };
   }
 
