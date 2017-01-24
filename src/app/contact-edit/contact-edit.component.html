@@ -29,9 +29,9 @@
     </div>
     <img class="contact-edit-name-underlay" src="./assets/contact-details-name-underlay.svg"/>
     <div class="contact-edit-name flex-row">
-      <p class="contact-edit-title">{{dialogTitle}}</p>
-      <button md-button *ngIf="editExisting" (click)="onDeleted($event)">
-        <md-icon class="contact-delete-icon u-grey">delete_forever</md-icon>
+      <h2 class="contact-edit-title">{{dialogTitle}}</h2>
+      <button md-icon-button class="contact-delete" *ngIf="editExisting" (click)="onDeleted($event)">
+        <md-icon class="u-grey">delete_forever</md-icon>
       </button>
     </div>
   </div>
@@ -59,7 +59,7 @@
           <div class="flex-row">
             <!-- TODO find solution for primitive value problem -->
             <md-input type="tel" [(ngModel)]="editObject.phoneNumbers[i]" placeholder="Phone"></md-input>
-            <button md-button (click)="unsetPhone(i)">
+            <button md-icon-button (click)="unsetPhone(i)">
               <md-icon class="md-12 u-grey">delete</md-icon>
             </button>
           </div>
@@ -81,7 +81,7 @@
           <div class="flex-row">
             <md-input [(ngModel)]="address.street" placeholder="Street"></md-input>
 
-            <button md-button (click)="unsetAddress(i)">
+            <button md-icon-button (click)="unsetAddress(i)">
               <md-icon class="md-12 u-grey">delete</md-icon>
             </button>
           </div>
@@ -107,7 +107,7 @@
         <div class="contact-edit-content-section" *ngFor="let mail of editObject.emailAddresses; let i = index">
           <div class="flex-row">
             <md-input type="email" [(ngModel)]="editObject.emailAddresses[i]" name="mail{{i}}" placeholder="Mail"></md-input>
-            <button md-button (click)="unsetMail(i)">
+            <button md-icon-button (click)="unsetMail(i)">
               <md-icon class="md-12 u-grey">delete</md-icon>
             </button>
           </div>

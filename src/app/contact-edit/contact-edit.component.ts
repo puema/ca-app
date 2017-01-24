@@ -13,10 +13,7 @@ interface FileReaderEvent extends Event {
 @Component({
   selector: 'contact-edit',
   templateUrl: './contact-edit.component.html',
-  styleUrls: ['./contact-edit.component.less'],
-  inputs: [
-    'contact'
-  ]
+  styleUrls: ['./contact-edit.component.less']
 })
 export class ContactEditComponent implements OnInit {
 
