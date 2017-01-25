@@ -120,7 +120,6 @@ export class ContactsComponent implements OnInit {
   }
 
   toggleEditing () : void {
-    console.log(1, this.selectedContact);
     this.isEditingActive = !this.isEditingActive;
   }
 
