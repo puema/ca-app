@@ -89,16 +89,6 @@ $mobile-breakpoint: 425px;
 
 // ----==== Hacks ====---- //
 
-mp-blurred-scroll .content {
-  height: calc(100% - 68px) !important;
-  top: 68px !important;
-}
-
-mp-blurred-scroll .blurred-content {
-  height: calc(100% - 68px) !important;
-  padding-top: 68px !important;
-}
-
 .md-input-wrapper {
   position: relative;
 }

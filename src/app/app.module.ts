@@ -15,8 +15,6 @@ import { ContactEditComponent } from './contact-edit/contact-edit.component';
 import { DomSanitizerImpl } from '@angular/platform-browser/src/security/dom_sanitization_service';
 import { LoginService } from './login.service';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpInterceptorModule } from 'angular2-http-interceptor';
-import { TokenInterceptor } from './data/token/token-interceptor';
 import { TokenResource } from './data/token/token-resource';
 import { HttpInterceptor } from './data/token/http-interceptor';
 

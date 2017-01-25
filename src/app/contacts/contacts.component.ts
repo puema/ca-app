@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ContactsService } from '../data/contacts.service';
 import { ContactDto } from '../data/model/ContactDto';
 import { LoginService } from '../login.service';
+import { ContactsListComponent } from '../contacts-list/contacts-list.component';
 
 
 @Component({
@@ -11,6 +12,8 @@ import { LoginService } from '../login.service';
   providers: [ContactsService]
 })
 export class ContactsComponent implements OnInit {
+
+  @ViewChild('contactsList') contactsList : ContactsListComponent;
 
   authenticated : boolean = false;
 
@@ -30,21 +33,29 @@ export class ContactsComponent implements OnInit {
     this.authenticated = this.loginService.isUserLoggedIn();
 
     if (this.authenticated) {
-      this.contactsService.getContacts().subscribe((contacts : ContactDto[]) => {
-        this.contacts = contacts;
-      });
+      this.contactsService.getContacts().subscribe(
+        (contacts : ContactDto[]) => {
+          this.contacts = contacts;
+        },
+        (error : any) => {
+        },
+        () => {
+          setTimeout(() => {
+            this.contactsList.mpBlurredScroll.renderBlurredContent();
+          });
+        });
     }
   }
 
-  refreshContacts() : void {
+  refreshContacts () : void {
     this.ngOnInit();
   }
 
-  get isViewActive(): boolean {
+  get isViewActive () : boolean {
     return (this.isDetailsActive || this.isEditingActive);
   }
 
-  set isViewActive(value: boolean) {
+  set isViewActive (value : boolean) {
     this._isViewActive = value;
     this.isEditingActive = false;
     this.isDetailsActive = false;
@@ -94,20 +105,20 @@ export class ContactsComponent implements OnInit {
   deleteContact (contact : any) {
     //TODO persist in backend
     this.contactsService.deleteContact(contact)
-      .subscribe((deletedContact) => {
-        let contactIdx : number = 0;
-        this.contacts.filter((element, index) => {
-          if (element.id === deletedContact.id) {
-            contactIdx = index;
-          }
-        });
+     .subscribe((deletedContact) => {
+     let contactIdx : number = 0;
+     this.contacts.filter((element, index) => {
+     if (element.id === deletedContact.id) {
+     contactIdx = index;
+     }
+     });
 
-        this.contacts.splice(contactIdx, 1);
+     this.contacts.splice(contactIdx, 1);
 
-        this.selectedContact = undefined;
-        this.isDetailsActive = false;
-        this.isEditingActive = false;
-      });
+     this.selectedContact = undefined;
+     this.isDetailsActive = false;
+     this.isEditingActive = false;
+     });
   }
 
   toggleEditing () : void {

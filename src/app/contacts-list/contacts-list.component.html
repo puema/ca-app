@@ -1,4 +1,4 @@
-<mp-blurred-scroll>
+<mp-blurred-scroll #mpBlurredScroll>
 
   <mp-blurred-scroll-header>
     <md-input #searchBox class="search-input" placeholder="search"
@@ -9,7 +9,7 @@
 
   <mp-blurred-scroll-content>
     <md-nav-list>
-      <md-list-item (click)="onClick(contact)" *ngFor="let contact of contacts; trackBy: contact?.id | contactsListPipe:searchBox.value;">
+      <md-list-item (click)="onClick(contact)" *ngFor="let contact of contacts | contactsListPipe:searchBox.value; trackBy: contact?.id">
         <img *ngIf="contact.imageUri" md-list-avatar src="{{contact.imageUri}}" alt="not found">
         <div *ngIf="!contact.imageUri" md-list-avatar class="dummy-image"
              [style.background-color]="getColor(contact)">

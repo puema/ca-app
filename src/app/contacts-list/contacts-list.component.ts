@@ -1,6 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { ContactDto } from '../data/model/ContactDto';
-import { numToHSL, hashCode, getContactColor } from '../utils/color-util';
+import { getContactColor } from '../utils/color-util';
 
 @Component({
   selector: 'contacts-list',
@@ -14,6 +14,8 @@ export class ContactsListComponent {
 
   @Output()
   selectedContact: EventEmitter<ContactDto> = new EventEmitter<ContactDto>();
+
+  @ViewChild('mpBlurredScroll') mpBlurredScroll : any;
 
   constructor () {
   }
