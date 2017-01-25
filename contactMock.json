@@ -17,15 +17,17 @@
         "zip": "10000",
         "city": "New York City",
         "region": "New York",
-        "country": "United States of America"
+        "country": {
+          "name": "United States of America"
+        }
       }
     ],
     "emailAddresses": [
       "harvey.spectre@psl.com"
     ],
-    "phoneNumbers": [
-      "+49 151 233233"
-    ]
+    "phoneNumbers": [{
+      "number": "+49 151 233233"
+    }]
   },
   {
     "firstname": "Marcel",
@@ -41,15 +43,25 @@
   {
     "firstname": "Marko",
     "lastname": "Grgic",
+    "birthday": "18/01/1994",
     "id": "-938628876",
+    "phoneNumbers": [{
+      "number": "+49 TEL EFON"
+    }, {
+      "number": "Ich heb ab"
+    }],
     "addresses": [
       {
         "city": "Rosenheim",
-        "region": "New York"
+        "country": {
+          "name": "Germany"
+        }
       },
       {
         "city": "Traunreut",
-        "region": "New York"
+        "country": {
+          "name": "Albanistan"
+        }
       }
     ],
     "imageUri": "./assets/marko-grgic.jpg"

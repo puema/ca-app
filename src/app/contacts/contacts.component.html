@@ -2,7 +2,7 @@
   <div class="filler"></div>
   <div class="contacts flex-column full-height">
     <div class="header-container">
-      <header [(isBackVisible)]="isViewActive"></header>
+      <header [(isBackVisible)]="isViewActive" (updatedMockState)="refreshContacts()"></header>
     </div>
     <div class="flex-row full-height" *ngIf="authenticated">
       <contacts-list [contacts]="contacts" (selectedContact)="onSelectContact($event)"></contacts-list>

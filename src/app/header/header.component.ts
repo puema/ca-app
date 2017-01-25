@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { LoginService } from '../login.service';
+import {ContactsService} from "../data/contacts.service";
 
 @Component({
   selector: 'header',
@@ -14,12 +15,24 @@ export class HeaderComponent implements OnInit {
   isBackVisibleChange : EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input()
   isUserLoggedIn;
+  @Output()
+  updatedMockState = new EventEmitter();
 
-  constructor(private loginService : LoginService) {
+  useMock : boolean = false;
+  color : string = 'warn';
+
+  constructor(private contactService : ContactsService,
+              private loginService : LoginService) {
   }
 
   ngOnInit() {
     this.isUserLoggedIn = this.loginService.isUserLoggedIn();
+  }
+
+  toggleMock(value: boolean) {
+    this.useMock = !this.useMock;
+    this.contactService.setMock(this.useMock);
+    this.updatedMockState.emit();
   }
 
   private onBack() : void {

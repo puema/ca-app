@@ -30,7 +30,7 @@ export class ContactDetailsComponent implements OnInit {
   }
 
   get contactBirthday () : string {
-    if (this.contact.birthday.toString() === '0001-01-01T00:00:00') {
+    if (this.contact.birthday && this.contact.birthday.toString() === '0001-01-01T00:00:00') {
       return '';
     } else {
       this.contact.birthday;

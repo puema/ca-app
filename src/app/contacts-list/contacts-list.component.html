@@ -21,7 +21,7 @@
         <p md-line>
           <span> {{contact.firstname}} </span>
         </p>
-        <p *ngIf="contact.phoneNumbers && contact.phoneNumbers[0]" class="phone-number tablet-and-greater">{{contact.phoneNumbers[0]}}</p>
+        <p *ngIf="contact.phoneNumbers && contact.phoneNumbers[0]" class="phone-number tablet-and-greater">{{contact.phoneNumbers[0].number}}</p>
       </md-list-item>
     </md-nav-list>
   </mp-blurred-scroll-content>

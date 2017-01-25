@@ -36,6 +36,10 @@ export class ContactsComponent implements OnInit {
     }
   }
 
+  refreshContacts() : void {
+    this.ngOnInit();
+  }
+
   get isViewActive(): boolean {
     return (this.isDetailsActive || this.isEditingActive);
   }

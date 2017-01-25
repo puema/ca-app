@@ -5,9 +5,10 @@
         <md-icon >arrow_back</md-icon>
       </button>
       <span class="tablet-and-greater flex-grow-2">Torpedo Maximum Contacts</span>
+      <md-slide-toggle *ngIf="isUserLoggedIn" class="mockSlider" [checked]="useMock" (change)="toggleMock($event)" [color]="color">Use Mock</md-slide-toggle>
       <div class="flex-row vertical-center font-l" *ngIf="isUserLoggedIn">
         <md-icon class="header-icon" svgIcon="account"></md-icon>
-        <span class="thin user-name">Leeerooooy Jenkins</span>
+        <span class="thin user-name">Leeeroooy Jenkins</span>
       </div>
       <!-- User is logged out -->
       <button *ngIf="!isUserLoggedIn" (click)="onLogin()" md-button class="flex-row vertical-center">

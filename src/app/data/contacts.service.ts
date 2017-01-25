@@ -8,20 +8,24 @@ import { ContactsApi } from './api/ContactsApi';
 @Inject(ApiInstantiator)
 export class ContactsService {
   private endpoint : ContactsApi;
+  private useMock : boolean = false;
 
   constructor (private apiInst : ApiInstantiator) {
     this.endpoint = apiInst.initContactsApi();
   }
 
   public getContacts () : Observable<ContactDto[]> {
-    return this.endpoint.contactsGetAll();
+    if (this.useMock) {
+      return Observable.create(observer => {
+        // Yield a single value and complete
+        observer.next(require('../../../contactMock.json'));
+        observer.complete();
 
-    // return Observable.create(observer => {
-    //   // Yield a single value and complete
-    //   observer.next(require('../../../contactMock.json'));
-    //   observer.complete();
-    //
-    // });
+      });
+    } {
+      return this.endpoint.contactsGetAll();
+    }
+
   }
 
   public addContact(contact: ContactDto) : Observable<ContactDto> {
@@ -34,5 +38,9 @@ export class ContactsService {
 
   public deleteContact(contact: ContactDto) : Observable<ContactDto> {
     return this.endpoint.contactsDelete(contact.id);
+  }
+
+  public setMock(state: boolean) : void {
+    this.useMock = state;
   }
 }
