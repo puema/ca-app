@@ -41,7 +41,6 @@ export class HeaderComponent implements OnInit {
   }
 
   private onLogin () : void {
-    console.log(1);
     window.location.href = LoginService.LOGIN_URL;
   }
 
