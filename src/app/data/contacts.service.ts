@@ -29,15 +29,42 @@ export class ContactsService {
   }
 
   public addContact(contact: ContactDto) : Observable<ContactDto> {
-    return this.endpoint.contactsAdd(contact);
+    if (this.useMock) {
+      return Observable.create(observer => {
+        // Yield a single value and complete
+        observer.next(contact);
+        observer.complete();
+
+      });
+    } {
+      return this.endpoint.contactsAdd(contact);
+    }
   }
 
   public updateContact(contact: ContactDto) : Observable<ContactDto> {
-    return this.endpoint.contactsUpdate(contact);
+    if (this.useMock) {
+      return Observable.create(observer => {
+        // Yield a single value and complete
+        observer.next(contact);
+        observer.complete();
+
+      });
+    } {
+      return this.endpoint.contactsUpdate(contact);
+    }
   }
 
   public deleteContact(contact: ContactDto) : Observable<ContactDto> {
-    return this.endpoint.contactsDelete(contact.id);
+    if (this.useMock) {
+      return Observable.create(observer => {
+        // Yield a single value and complete
+        observer.next(contact);
+        observer.complete();
+
+      });
+    } {
+      return this.endpoint.contactsDelete(contact.id);
+    }
   }
 
   public setMock(state: boolean) : void {
